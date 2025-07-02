@@ -182,14 +182,14 @@ function getTemplate1(data, TemplateHelpers, lightColor) {
               <tr>
                   <td align="center" valign="top" style="font-family:Arial; font-size:36px; line-height:44px; color:#972629; padding:0; font-weight:bold; background-color:${
                     data.color
-                  };" bgcolor="${data.color}" class="heading">  ${data.headline}
+                  };" bgcolor="${data.color}" class="heading">  ${TemplateHelpers.processTextWithLineBreaks(data.headline,{delimiter:"/n"})}
                   </td>
                 </tr>
                 <tr>
                   <td align="center" valign="top" style="font-family:Arial; font-size:22.5px; line-height:31px; color:#000000; padding:5px 0 0 0; background-color:${
                     data.color
                   };" bgcolor="${data.color}" class="subheading"> 
-                    ${TemplateHelpers.processText(data.subHeadline, {
+                    ${TemplateHelpers.processTextWithLineBreaks(data.subHeadline, {
                       color: "#000000",
                     })}
                   </td>
@@ -244,7 +244,7 @@ function getTemplate1(data, TemplateHelpers, lightColor) {
                                     <td align="center" valign="top" style="font-family:Arial; font-size:21px; line-height:26px; color:#000000; background-color:${
                                       data.color
                                     }; padding:0px;" bgcolor="${data.color}">
-                                      ${TemplateHelpers.processText(
+                                      ${TemplateHelpers.processTextWithLineBreaks(
                                         data.offertext,
                                         { color: "#97272b" }
                                       )}
@@ -319,7 +319,7 @@ function getTemplate1(data, TemplateHelpers, lightColor) {
     <td style="background-color:${data.color};padding:0; margin:0;" bgcolor="${
       data.color
     }">
-        ${TemplateHelpers.getSocialIcons(data, lightColor)}
+        ${TemplateHelpers.getSocialIcons(data.color, lightColor)}
         ${TemplateHelpers.getFooter(data.tncUrl)}
     </td>
     </tr>

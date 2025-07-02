@@ -226,14 +226,14 @@ function getTemplate5(data, TemplateHelpers, lightColor) {
                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 36px; line-height: 44px; color: #972429; padding: 0; font-weight: bold; background-color: ${
                                                   data.backgroundColor
                                                 };" class="heading"> ${
-    data.headingLine1
+   TemplateHelpers.processTextWithLineBreaks( data.headingLine1,{delimiter: "/n"})
   }                                                </td>
                                               </tr>
                                               <tr>
                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 23px; line-height: 31px; color: #000000; padding: 10px 0 0 0; background-color: ${
                                                   data.backgroundColor
                                                 };" class="subheading">${
-    data.subHeadingLine1
+    TemplateHelpers.processTextWithLineBreaks( data.subHeadingLine1,{delimiter: "/n"})
   }                                                </td>
                                               </tr>
                                             </tbody>
@@ -267,7 +267,7 @@ function getTemplate5(data, TemplateHelpers, lightColor) {
                                                   };max-width:500px;">
                                                     <tbody>
                                                       <tr>
-                                                        <td align="left" valign="top" style="padding: 12px 10px; border: 1px dashed #000000 !important; background-color: ${
+                                                        <td align="left" width="500px" valign="top" style="padding: 12px 10px; border: 1px dashed #000000 !important; background-color: ${
                                                           data.backgroundColor
                                                         };">
                                                           <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="background-color: ${
@@ -275,53 +275,20 @@ function getTemplate5(data, TemplateHelpers, lightColor) {
                                                           };">
                                                             <tbody>
                                                               <tr>
-                                                                <td align="left" valign="middle" width="360" style="width:360px; background-color: ${
-                                                                  data.backgroundColor
-                                                                };padding:0;vertical-align:middle;">
-                                                                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: ${
-                                                                    data.backgroundColor
-                                                                  };">
-                                                                    <tbody>
-                                                                      <tr>
-                                                                        <td align="left" valign="middle" width="135" style="width: 135px; padding:0px;vertical-align:middle;" class="td-block"><img src='${
-                                                                          data.brandLogoUrl1
-                                                                        }' alt="Brand Logo" width="119" style="display: block; width: 119px; background-color: ${
-    data.backgroundColor
-  };" />
-                                                                        </td>
-                                                                        <td align="left" valign="middle" width="225" style="font-family: Arial; font-size: 20px; line-height: 24px; color: #000000; padding:0; background-color: ${
-                                                                          data.backgroundColor
-                                                                        };width:225px;" class="td-block font-16 pdtop5">
-                                                                          ${TemplateHelpers.processText(
-                                                                            data.offerText1,
-                                                                            {
-                                                                              color:
-                                                                                "#97272b",
-                                                                            }
-                                                                          )}
-                                                                        </td>
-                                                                      </tr>
-                                                                    </tbody>
-                                                                  </table>
+                                                                <!-- Brand Logo -->
+                                                                <td align="left" valign="middle" width="125" style="width: 135px; padding:0;vertical-align: middle;">
+                                                                  <img src='${data.brandLogoUrl1}' alt="Brand Logo" width="119" style="display: block; width: 119px;" />
                                                                 </td>
-                                                                <td align="right" valign="middle" style="background-color: ${
-                                                                  data.backgroundColor
-                                                                };padding:0px;">
-                                                                  <table border="0" cellspacing="0" cellpadding="0" style="background-color: ${
-                                                                    data.backgroundColor
-                                                                  };">
-                                                                    <tbody>
-                                                                      <tr>
-                                                                        <td align="center" valign="top" height="45" style="background: #97272b; border-radius: 5px; height: 45px;font-family: Arial; font-size: 16px; line-height: 16px; color: #ffffff; text-transform: uppercase; background-color: #97272b;padding:0px 12px;">
-                                                                          <a href="${
-                                                                            data.ctaUrl1
-                                                                          }" target="_blank" style="display: block; height: 45px; color: #ffffff; line-height: 45px; text-decoration: none;"><strong style="color: #ffffff; text-decoration: none;">${
-    data.ctaText1
-  }</strong></a>
-                                                                        </td>
-                                                                      </tr>
-                                                                    </tbody>
-                                                                  </table>
+                                                                <!-- Offer Text -->
+                                                                <td align="left" valign="middle" width="215" style="font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color: #000; padding:0;vertical-align: middle;">
+                                                                  ${TemplateHelpers.processTextWithLineBreaks(data.offerText1, { color: "#97272b" })}
+                                                                </td>
+                                                                <!-- CTA Button -->
+                                                                <td align="right" valign="middle" width="125" style="padding:0;vertical-align: middle;">
+                                                                  <a href="${data.ctaUrl1}" target="_blank"
+                                                                    style="display: inline-block; background: #97272b; border-radius: 5px; height: 45px; color: #fff; font-size: 16px; line-height: 45px; text-decoration: none; padding: 0 15px; text-transform: uppercase;">
+                                                                    <strong>${TemplateHelpers.processTextWithLineBreaks(data.ctaText1, {delimiter: "/n"})}</strong>
+                                                                  </a>
                                                                 </td>
                                                               </tr>
                                                             </tbody>
@@ -341,7 +308,7 @@ function getTemplate5(data, TemplateHelpers, lightColor) {
                                                   };max-width:500px;">
                                                     <tbody>
                                                       <tr>
-                                                        <td align="left" valign="top" style="padding: 12px 10px; border: 1px dashed #000000 !important; background-color: ${
+                                                        <td align="left" width="500px" valign="top" style="padding: 12px 10px; border: 1px dashed #000000 !important; background-color: ${
                                                           data.backgroundColor
                                                         };">
                                                           <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="background-color: ${
@@ -349,54 +316,20 @@ function getTemplate5(data, TemplateHelpers, lightColor) {
                                                           };">
                                                             <tbody>
                                                               <tr>
-                                                                <td align="left" valign="middle" width="360" style="width: 360px; background-color: ${
-                                                                  data.backgroundColor
-                                                                };vertical-align:middle;padding:0px">
-                                                                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: ${
-                                                                    data.backgroundColor
-                                                                  };">
-                                                                    <tbody>
-                                                                      <tr>
-                                                                        <td align="left" valign="middle" width="135" style="width: 135px;vertical-align:middle;padding:0px;" class="td-block">
-                                                                        <img src='${
-                                                                          data.brandLogoUrl2
-                                                                        }' alt="Brand Logo" width="119" style="display: block; width: 119px; background-color: ${
-    data.backgroundColor
-  };" />
-                                                                        </td>
-                                                                        <td align="left" valign="middle" width="225" style="font-family: Arial; font-size: 20px; line-height: 24px; color: #000000; padding: 0px; background-color: ${
-                                                                          data.backgroundColor
-                                                                        };width:210px;" class="td-block font-16 pdtop5">
-                                                                          ${TemplateHelpers.processText(
-                                                                            data.offerText2,
-                                                                            {
-                                                                              color:
-                                                                                "#97272b",
-                                                                            }
-                                                                          )}
-                                                                        </td>
-                                                                      </tr>
-                                                                    </tbody>
-                                                                  </table>
+                                                                <!-- Brand Logo -->
+                                                                <td align="left" valign="middle" width="125" style="width: 135px; padding:0;vertical-align: middle;">
+                                                                  <img src='${data.brandLogoUrl2}' alt="Brand Logo" width="119" style="display: block; width: 119px;" />
                                                                 </td>
-                                                                <td align="right" valign="middle" style="background-color: ${
-                                                                  data.backgroundColor
-                                                                };padding:0px">
-                                                                  <table border="0" cellspacing="0" cellpadding="0" style="background-color: ${
-                                                                    data.backgroundColor
-                                                                  };">
-                                                                    <tbody>
-                                                                      <tr>
-                                                                        <td align="center" valign="top" height="45" style="background: #97272b; border-radius: 5px; height: 45px;font-family: Arial; font-size: 16px; line-height: 16px; color: #ffffff; text-transform: uppercase; background-color: #97272b;padding:0px 12px;">
-                                                                          <a href="${
-                                                                            data.ctaUrl2
-                                                                          }" target="_blank" style="display: block; height: 45px; color: #ffffff; line-height: 45px; text-decoration: none;"><strong style="color: #ffffff; text-decoration: none;">${
-    data.ctaText2
-  }</strong></a>
-                                                                        </td>
-                                                                      </tr>
-                                                                    </tbody>
-                                                                  </table>
+                                                                <!-- Offer Text -->
+                                                                <td align="left" valign="middle" width="215" style="font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; color: #000; padding:0;vertical-align: middle;">
+                                                                  ${TemplateHelpers.processTextWithLineBreaks(data.offerText2, { color: "#97272b" })}
+                                                                </td>
+                                                                <!-- CTA Button -->
+                                                                <td align="right" valign="middle" width="125" style="padding:0;vertical-align: middle;">
+                                                                  <a href="${data.ctaUrl2}" target="_blank"
+                                                                    style="display: inline-block; background: #97272b; border-radius: 5px; height: 45px; color: #fff; font-size: 16px; line-height: 45px; text-decoration: none; padding: 0 15px; text-transform: uppercase;">
+                                                                    <strong>${TemplateHelpers.processTextWithLineBreaks(data.ctaText2, {delimiter: "/n"})}</strong>
+                                                                  </a>
                                                                 </td>
                                                               </tr>
                                                             </tbody>
@@ -415,7 +348,7 @@ function getTemplate5(data, TemplateHelpers, lightColor) {
                                         <td align="center" valign="top" style="font-family: Arial; font-size: 16px; line-height: 18px; color: #97272b; padding: 25px 0 25px 0; text-decoration: none; background-color: ${
                                           data.backgroundColor
                                         };">
-                                          ${data.expiryText}
+                                          ${TemplateHelpers.processTextWithLineBreaks(data.expiryText,{ delimiter: "/n" })}
                                         </td>
                                       </tr>
                                     </tbody>
@@ -439,7 +372,7 @@ function getTemplate5(data, TemplateHelpers, lightColor) {
         <td align="right" valign="top" style="background-color: ${
           data.backgroundColor
         };padding: 0;margin:0;">
-          ${TemplateHelpers.getSocialIcons(data, lightColor)}
+          ${TemplateHelpers.getSocialIcons(data.backgroundColor, lightColor)}
           ${TemplateHelpers.getFooter(data.tncUrl)}
         </td>
       </tr>

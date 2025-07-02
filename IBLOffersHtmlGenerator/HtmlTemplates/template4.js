@@ -129,6 +129,17 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
         line-height: 20px !important;
       }
     }
+    @media only screen and (max-width:640px) {
+  .divider { display: none !important; }
+  .hr-mobile { 
+    display: block !important; 
+    width: 80% !important; 
+    height: 1px !important; 
+    background: #000 !important; 
+    margin: 16px auto !important; 
+    border: none !important;
+  }
+}
   </style>
 </head>
 
@@ -142,7 +153,7 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
         <td align="center" valign="middle" style="font-family: Arial; font-size: 14px; line-height: 18px; color: #000000; padding: 30px 20px 10px 25px; background-color: ${
           data.color
         };max-width:600px;">
-          ${TemplateHelpers.getNavbarTwoLogos(data,data.networklogo)}
+          ${TemplateHelpers.getNavbarTwoLogos(data, data.networklogo)}
         </td>
       </tr>
       <tr>
@@ -189,14 +200,14 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 36px; line-height: 44px; color: #972629; padding: 0; font-weight: bold; background-color: ${
                                                   data.color
                                                 };" class="heading">
-                       ${data.headline}
+                       ${TemplateHelpers.processTextWithLineBreaks(data.headline,{ delimiter: "/n" })}
                                                 </td>
                                               </tr>
                                               <tr>
                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 23px; line-height: 31px; color: #000000; padding: 5px 0 0 0; background-color: ${
                                                   data.color
                                                 };" class="subheading">
-                                        ${data.subHeadline}
+                                        ${TemplateHelpers.processTextWithLineBreaks(data.subHeadline,{ delimiter: "/n" })}
                                                 </td>
                                               </tr>
                                             </tbody>
@@ -206,26 +217,34 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
                                       
                                       <!-- Banner Image -->
                                       <tr>
-                                        <td align="center" valign="top" style="font-family: Arial; font-size: 18px; line-height: 21px; color: #000000; padding: 0; font-weight: bold; background-color: ${ data.color};" class="responsive-image pdlr">
+                                        <td align="center" valign="top" style="font-family: Arial; font-size: 18px; line-height: 21px; color: #000000; padding: 0; font-weight: bold; background-color: ${
+                                          data.color
+                                        };" class="responsive-image pdlr">
                                           <img src='${
                                             data.heroImage
                                           }' height="400" alt="IndusInd Bank" style="display: block; width: auto; height: 400px; margin: 0 auto; background-color: ${
-      data.color
-    };" />
+    data.color
+  };" />
                                         </td>
                                       </tr>
                                       <tr>
-                                        <td align="center" valign="top" style="font-family: Arial; font-size: 18px; line-height: 21px; color: #000000; padding: 10px 0px 0px 0px; font-weight: bold; background-color: ${data.color};" class="pdlr">
+                                        <td align="center" valign="top" style="font-family: Arial; font-size: 18px; line-height: 21px; color: #000000; padding: 10px 0px 0px 0px; font-weight: bold; background-color: ${
+                                          data.color
+                                        };" class="pdlr">
                                           <img 
                                             src='${data.brandLogo}' 
-                                            style="display: block; max-width: 400px; height: auto; margin: 0 auto; background-color: ${data.color};" 
+                                            style="display: block; max-width: 400px; height: auto; margin: 0 auto; background-color: ${
+                                              data.color
+                                            };" 
                                             alt="IndusInd Bank" 
                                           />
                                         </td>
                                       </tr>
                                       <!-- Promo Code Boxes -->
                                       <tr>
-                                        <td align="center" valign="top" style="padding: 20px 15px 0 15px; background-color: ${data.color};">
+                                        <td align="center" valign="top" style="padding: 20px 15px 0 15px; background-color: ${
+                                          data.color
+                                        };">
                                           <table  border="0" cellspacing="0" cellpadding="0" style=" background-color: ${
                                             data.color
                                           };" class="table">
@@ -257,10 +276,10 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
                                                                       <tr>
                                                                         <td align="center" valign="top" style="font-family: Arial; font-size: 21px; line-height: 26px; color: #000000; padding: 0; background-color: ${
                                                                           data.color
-                                                                        };">${TemplateHelpers.processText(
-      data.offertext1,
-      { color: "#97272b" }
-    )}</td>
+                                                                        };">${TemplateHelpers.processTextWithLineBreaks(
+    data.offertext1,
+    { color: "#97272b" }
+  )}</td>
                                                                       </tr>
                                                                       <tr>
                                                                         <td align="center" valign="top" style="padding-top: 10px; background-color: ${
@@ -272,9 +291,11 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
                                                                             <tbody>
                                                                               <tr>
                                                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 16px; line-height: 16px; color: #ffffff; padding: 5px 10px; background: #97272b; border-radius: 5px;max-width: 90%;">
-                                                                                  <a href="${data.promoCodeLink1}" target="_blank" style="color: #ffffff; text-decoration: none;">Promo Code: <strong>${
-                                                                                    data.promoCode1
-                                                                                  }</strong></a>
+                                                                                  <a href="${
+                                                                                    data.promoCodeLink1
+                                                                                  }" target="_blank" style="color: #ffffff; text-decoration: none;">Promo Code: <strong>${
+    data.promoCode1
+  }</strong></a>
                                                                                 </td>
                                                                               </tr>
                                                                             </tbody>
@@ -288,7 +309,9 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
                                                             </tbody>
                                                           </table>
                                                         </th>
-                                                        <th style="width: 1px; background-color: ${data.color}; padding: 0px; vertical-align: middle;">
+                                                        <th style="width: 1px; background-color: ${
+                                                          data.color
+                                                        }; padding: 0px; vertical-align: middle;">
                                 
 <td width="1" style="width: 1px; min-width: 1px; max-width: 1px; background-color: #000000; padding: 0; height: 80px !important; font-size: 0;">&nbsp;</td>
                                                         </th>
@@ -310,10 +333,10 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
                                                                       <tr>
                                                                         <td align="center" valign="top" style="font-family: Arial; font-size: 21px; line-height: 26px; color: #000000; padding: 0; background-color: ${
                                                                           data.color
-                                                                        };">${TemplateHelpers.processText(
-      data.offertext2,
-      { color: "#97272b" }
-    )}</td>
+                                                                        };">${TemplateHelpers.processTextWithLineBreaks(
+    data.offertext2,
+    { color: "#97272b" }
+  )}</td>
                                                                       </tr>
                                                                       <tr>
                                                                         <td align="center" valign="top" style="padding-top: 10px; background-color: ${
@@ -325,9 +348,11 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
                                                                             <tbody>
                                                                               <tr>
                                                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 16px; line-height: 16px; color: #ffffff; padding: 5px 10px; background: #97272b; border-radius: 5px;max-width: 90%;">
-                                                                                  <a href="${data.promoCodeLink2}" target="_blank" style="color: #ffffff; text-decoration: none;">Promo Code: <strong>${
-                                                                                    data.promoCode2
-                                                                                  }</strong></a>
+                                                                                  <a href="${
+                                                                                    data.promoCodeLink2
+                                                                                  }" target="_blank" style="color: #ffffff; text-decoration: none;">Promo Code: <strong>${
+    data.promoCode2
+  }</strong></a>
                                                                                 </td>
                                                                               </tr>
                                                                             </tbody>
@@ -350,8 +375,8 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 18px; line-height: 21px; color: #97272b; padding: 20px 0 20px 0; text-decoration: none; background-color: ${
                                                   data.color
                                                 };max-width:405px;" class="font-16 pdtb">${
-      data.offerEndText
-    }</td>
+    TemplateHelpers.processTextWithLineBreaks(data.offerEndText,{ delimiter: "/n" })
+  }</td>
                                               </tr>
                                             </tbody>
                                           </table>
@@ -373,7 +398,7 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
                                                     data.ctaUrl
                                                   }' style="color: #ffffff; text-decoration: none;" target="_blank">
                                                     <strong style="color: #ffffff; text-decoration: none;">${
-                                                      data.ctaText
+                                                      TemplateHelpers.processTextWithLineBreaks(data.ctaText,{ delimiter: "/n" }) || "Shop Now"
                                                     }</strong>
                                                   </a>
                                                 </td>
@@ -404,7 +429,7 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
         <td align="right" valign="top" style="background-color: ${
           data.color
         };padding: 0;margin:0;">
-          ${TemplateHelpers.getSocialIcons(data, lightColor)}
+          ${TemplateHelpers.getSocialIcons(data.color, lightColor)}
           ${TemplateHelpers.getFooter(data.tncUrl)}
         </td>
       </tr>
@@ -413,4 +438,4 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
 </body>
 </html>`;
 }
-return getTemplate4(data,TemplateHelpers,lightColor);
+return getTemplate4(data, TemplateHelpers, lightColor);

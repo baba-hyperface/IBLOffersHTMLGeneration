@@ -8,7 +8,7 @@ async function htmlTemplate(data, templateName) {
       return `<table class="footer" role="presentation" cellspacing="0" cellpadding="0" width="100%"
        style="background-color: #97282b; color: #FFF; font-size: 12px; font-weight: 400; text-align: center; border-collapse: collapse; width: 100%; min-width: 300px;font-family: Arial;">
     <tr>
-        <td width="40%" style="padding: 10px 20px; text-align: left; width: 40%; background-color:#97282b;">
+        <td width="35%" style="padding: 10px 20px; text-align: left; width: 35%; background-color:#97282b;">
             <div style="margin: 0;text-decoration:    underline;"> <a href="${
               tncUrl || "https://www.indusmoments.com/"
             }" 
@@ -18,8 +18,8 @@ async function htmlTemplate(data, templateName) {
             </a>
             </div>
         </td>
-        <td style="width: 16.5%; background-color: #97282b;"></td>
-        <td width="55%" style="padding: 10px 10px; text-align: right; width: 55%; background-color:#97282b;">
+        <td class="footer-spacer-td" style="width: 5.5%; background-color: #97282b;"></td>
+        <td width="75%" style="padding: 10px 10px; text-align: right; width: 75%; background-color:#97282b;">
             <a href= "https://www.indusind.com/in/en/personal/IBL-thirdparty-disclaimer.html" 
                target="_blank"
                style="color: #FFF; text-decoration: none;">
@@ -27,11 +27,10 @@ async function htmlTemplate(data, templateName) {
             </a>
         </td>
     </tr>
-</table>`
-;
+</table>`;
     },
 
-    getSocialIcons: function (data, lightColor) {
+    getSocialIcons: function (bgcolor, lightColor) {
       const iconSize = "16";
       const iconSpacing = "1px";
       const socialLinks = [
@@ -74,20 +73,20 @@ async function htmlTemplate(data, templateName) {
 
       return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" 
        style="width:100%; min-width:100%; background-color:${
-         data.color
+         bgcolor
        }; border-collapse:collapse;">
     <tr>
         <td valign="middle" style="padding:0px 10px 3px 0;background-color:${
-          data.color
+          bgcolor
         };vertical-align: middle;">
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
                    style="width:100%; border-collapse:collapse;background-color:${
-                     data.color
+                     bgcolor
                    };">
                 <tr>
                     <!-- Logo Column -->
                     <td align="left" valign="bottom" width="61" style="padding:0;background-color:${
-                      data.color
+                      bgcolor
                     };">
                         <img src="${
                           lightColor
@@ -99,12 +98,12 @@ async function htmlTemplate(data, templateName) {
                     
                     <!-- Spacer Column -->
                     <td class="socialspacer" style="width:auto; padding:0;background-color:${
-                      data.color
+                      bgcolor
                     };">&nbsp;</td>
                     
                     <!-- Social Icons Column -->
                     <td align="right" valign="bottom" style="padding:0; white-space:nowrap;padding:10px 5px 10px 335px;background-color:${
-                      data.color
+                      bgcolor
                     }; vertical-align: bottom;">
                         <span style="font-size:10.17px; color:#9A413C; font-weight:600; padding-right:${iconSpacing}; vertical-align:bottom; font-family:Arial;">
                             Connect with us:
@@ -128,30 +127,30 @@ async function htmlTemplate(data, templateName) {
 </table>
 `;
     },
-    getNavbarTwoLogos: function (data, leftIconUrl) {
+    getNavbarTwoLogos: function (data, leftIconUrl, bgcolor) {
       const src =
         leftIconUrl ||
         "https://demo.forecastadvtg.com/projects/Hyperface/2025/email/Boombay/boombay-logo.png";
       return `
       <table width="100%" border="0" cellspacing="0" cellpadding="0" style="width:100%; background-color:${
-        data.color
-      };" bgcolor="${data.color}">
+        bgcolor || data.color
+      };" bgcolor="${bgcolor || data.color}">
         <tr>
             <!-- Left Logo -->
             <td align="left" valign="middle" style="width:50%; background-color:${
-              data.color
-            };" bgcolor="${data.color}">
+              data.color || bgcolor
+            };" bgcolor="${data.color || bgcolor}">
             <img src='${src}'
                 alt="Brand-logo"
                 style="display:block; height:28px; width:auto; max-width:100%;" class="main-logo">
             </td>
             <td class="spacer" style="width:50px; background-color:${
-              data.color
-            };" bgcolor="${data.color}">&nbsp;</td>
+              data.color || bgcolor
+            };" bgcolor="${data.color || bgcolor}">&nbsp;</td>
             <!-- Right Logo -->
             <td align="right" valign="middle" style="width:50%; background-color:${
-              data.color
-            };" bgcolor="${data.color}">
+              data.color || bgcolor
+            };" bgcolor="${data.color || bgcolor}">
             <a href="https://www.indusind.com/" target="_blank" style="text-decoration:none;">
                 <img src="${
                   lightColor
@@ -167,10 +166,10 @@ async function htmlTemplate(data, templateName) {
     },
 
     // Navbar with one logo (right aligned)
-    getNavbarSingleLogo: function (data) {
+    getNavbarSingleLogo: function (data, bgcolor) {
       return `
         <table width="100%" cellspacing="0" cellpadding="0" border="0">
-            <tr style="background-color: ${data.color};">
+            <tr style="background-color: ${data.color || bgcolor};">
                 <td align="right" style="padding: 18px;">
                 <a href="https://www.indusind.com/" target="_blank" style="text-decoration:none;">
                     <img src="${
@@ -207,6 +206,40 @@ async function htmlTemplate(data, templateName) {
         `<${tag} style="${styleString}">$1</${tag}>`
       );
     },
+    insertLineBreaks: function (text, delimiter = "///") {
+      if (!text || typeof text !== "string") return "";
+      return text.split(delimiter).join("<br>");
+    },
+     processTextWithLineBreaks:function(text, options = {}) {
+  if (!text || typeof text !== "string") return "";
+
+  const styles = {
+    color: options.color || "#97272b",
+    fontWeight: options.bold ? "bold" : "normal",
+    fontSize: options.size || "inherit",
+    fontStyle: options.italic ? "italic" : "normal",
+    textDecoration: options.underline ? "underline" : "none",
+  };
+
+  const styleString = Object.entries(styles)
+    .map(([key, value]) => `${key}:${value}`)
+    .join(";");
+
+  const tag = options.tag || "strong";
+  const delimiter = options.delimiter || "/n";
+
+  // Step 1: Replace **bold** with styled tag
+  let processed = text.replace(
+    /\*\*(.*?)\*\*/g,
+    `<${tag} style="${styleString}">$1</${tag}>`
+  );
+
+  // Step 2: Replace custom line break delimiter with <br>
+  processed = processed.split(delimiter).join("<br>");
+
+  return processed;
+}
+
   };
   const namedColors = {
     aliceblue: "#F0F8FF",
@@ -262,52 +295,27 @@ async function htmlTemplate(data, templateName) {
 
   const lightColor = isLightColor(data.color || "#ffffff");
   let selectedTemplate;
-if (templateName === 'template1') {
-  selectedTemplate = await template1.trigger({
-                additionalScope: {
-                  data: data,
-                  TemplateHelpers: TemplateHelpers,
-                  lightColor:lightColor
-                },
-              });
-} else if(templateName === 'template2') {
-  selectedTemplate = await template2.trigger({
-                        additionalScope: {
-                          data: data,
-                          TemplateHelpers: TemplateHelpers,
-                          lightColor:lightColor
-                        },
-                      });
-} else if(templateName === 'template3') {
-  selectedTemplate = await template3.trigger({
-                        additionalScope: {
-                          data: data,
-                          TemplateHelpers: TemplateHelpers,
-                          lightColor:lightColor
-                        },
-                      });
-}
-  else if(templateName === "template4"){
-    selectedTemplate = await template4.trigger({
-      additionalScope:{
+  const templateMap = {
+    template1: template1,
+    template2: template2,
+    template3: template3,
+    template4: template4,
+    template5: template5,
+    template6: template6,
+    //  template7: template7,
+    //  template8: template8
+  };
+  if (templateMap[templateName]) {
+    selectedTemplate = await templateMap[templateName].trigger({
+      additionalScope: {
         data: data,
         TemplateHelpers: TemplateHelpers,
-        lightColor:lightColor
-      }
+        lightColor: lightColor
+      },
     });
+  } else {
+    selectedTemplate = '<div>wrong template selected</div>';
   }
-    else if(templateName === "template5"){
-    selectedTemplate = await template5.trigger({
-      additionalScope:{
-        data: data,
-        TemplateHelpers: TemplateHelpers,
-        lightColor:lightColor
-      }
-    });
-  }
-else{
-  selectedTemplate= '<div>wrong template selected</div>'
-}
   return selectedTemplate;
 }
 

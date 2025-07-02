@@ -210,14 +210,14 @@ function getTemplate2(data, TemplateHelpers, lightColor) {
                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 36px; line-height: 44px; color: #972629; padding: 0; font-weight: bold; background-color: ${
                                                   data.color
                                                 };" class="heading">
-                       ${data.headline}
+                       ${TemplateHelpers.processTextWithLineBreaks(data.headline,{delimiter:"/n"})}
                                                 </td>
                                               </tr>
                                               <tr>
                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 23px; line-height: 31px; color: #000000; padding: 5px 0 0 0; background-color: ${
                                                   data.color
                                                 };" class="subheading">
-                                        ${data.subHeadline}
+                                        ${TemplateHelpers.processTextWithLineBreaks(data.subHeadline,{delimiter:"/n"})}
                                                 </td>
                                               </tr>
                                             </tbody>
@@ -270,7 +270,7 @@ function getTemplate2(data, TemplateHelpers, lightColor) {
                                                                       <tr>
                                                                         <td align="center" valign="top" style="font-family: Arial; font-size: 21px; line-height: 26px; color: #000000; padding: 0; background-color: ${
                                                                           data.color
-                                                                        };">${TemplateHelpers.processText(
+                                                                        };">${TemplateHelpers.processTextWithLineBreaks(
       data.offertext1,
       { color: "#97272b" }
     )}</td>
@@ -319,7 +319,7 @@ function getTemplate2(data, TemplateHelpers, lightColor) {
                                                                       <tr>
                                                                         <td align="center" valign="top" style="font-family: Arial; font-size: 21px; line-height: 26px; color: #000000; padding: 0; background-color: ${
                                                                           data.color
-                                                                        };">${TemplateHelpers.processText(
+                                                                        };">${TemplateHelpers.processTextWithLineBreaks(
       data.offertext2,
       { color: "#97272b" }
     )}</td>
@@ -334,7 +334,7 @@ function getTemplate2(data, TemplateHelpers, lightColor) {
                                                                             <tbody>
                                                                               <tr>
                                                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 16px; line-height: 16px; color: #ffffff; padding: 5px 10px; background: #97272b; border-radius: 5px;max-width: 90%;">
-                                                                                  <a href="${promoCodeLink2}" target="_blank" style="color: #ffffff; text-decoration: none;">Promo Code: <strong>${
+                                                                                  <a href="${data.promoCodeLink2}" target="_blank" style="color: #ffffff; text-decoration: none;">Promo Code: <strong>${
                                                                                     data.promoCode2
                                                                                   }</strong></a>
                                                                                 </td>
@@ -359,7 +359,7 @@ function getTemplate2(data, TemplateHelpers, lightColor) {
                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 18px; line-height: 21px; color: #97272b; padding: 20px 0 20px 0; text-decoration: none; background-color: ${
                                                   data.color
                                                 };max-width:405px;" class="font-16 pdtb">${
-      data.offerEndText
+      TemplateHelpers.processTextWithLineBreaks( data.offerEndText,{delimiter:"/n"})
     }</td>
                                               </tr>
                                             </tbody>
@@ -426,7 +426,7 @@ function getTemplate2(data, TemplateHelpers, lightColor) {
         <td align="right" valign="top" style="background-color: ${
           data.color
         };padding: 0;margin:0;">
-          ${TemplateHelpers.getSocialIcons(data, lightColor)}
+          ${TemplateHelpers.getSocialIcons(data.color, lightColor)}
           ${TemplateHelpers.getFooter(data.tncUrl)}
         </td>
       </tr>
