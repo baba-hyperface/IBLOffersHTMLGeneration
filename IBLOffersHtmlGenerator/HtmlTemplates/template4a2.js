@@ -126,6 +126,17 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
         line-height: 20px !important;
       }
     }
+    @media only screen and (max-width:640px) {
+  .divider { display: none !important; }
+  .hr-mobile { 
+    display: block !important; 
+    width: 80% !important; 
+    height: 1px !important; 
+    background: #000 !important; 
+    margin: 16px auto !important; 
+    border: none !important;
+  }
+}
   </style>
 </head>
 
@@ -383,4 +394,181 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
 </body>
 </html>`;
 }
-return getTemplate4(data, TemplateHelpers, lightColor);
+
+
+
+function getTemplate4preview(data, TemplateHelpers, lightColor) {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IndusInd Bank</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .container {
+      max-width:600px;
+      width: 100%;
+      background-color: ${data.color};
+    }
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+    .heading {
+      font-size: 36px;
+      color: #972629;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .subheading {
+      font-size: 23px;
+      color: #000;
+      margin-bottom: 20px;
+    }
+    .hero-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      margin: 20px 0;
+    }
+    .brand-logo {
+      max-width: 400px;
+      height: auto;
+      margin: 10px auto;
+    }
+    .offers-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .offer-box {
+      flex: 1;
+      max-width: 205px;
+    }
+    .offer-text {
+      font-size: 21px;
+      color: #000;
+      margin-bottom: 10px;
+    }
+    .promo-code {
+      background: #97272b;
+      color: white !important;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 16px;
+      display: inline-block;
+      text-decoration: none !important;
+    }
+    .divider {
+      width: 1px;
+      background: #000;
+    }
+    .offer-end {
+      font-size: 18px;
+      color: #97272b;
+      margin: 20px auto;
+      max-width: 405px;
+    }
+    .cta-button {
+      background: #97272b;
+      padding: 10px 24px;
+      border-radius: 5px;
+      font-size: 16px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin: 20px 0;
+      text-decoration: none !important;
+      color: #fff !important;
+      text-transform: uppercase;
+      border-radius: 5px;
+      font-size: 16px;
+      font-style:none !important;
+      padding: 0 18px;
+      height: 45px;
+      line-height: 45px;
+      font-weight: bold !important;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      text-decoration: none !important;
+    }
+    .footer {
+      text-align: right;
+      padding: 0;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .heading { font-size: 24px; }
+      .subheading { font-size: 18px; }
+      .offers-container { 
+        flex-direction: column;
+        align-items: center;
+      }
+      .offer-box { 
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+      .mobile-divider {
+        display: block;
+        width: 80%;
+        height: 1px;
+        background: #000;
+        margin: 16px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      ${TemplateHelpers.getNavbarTwoLogos(data, data.networklogo)}
+      
+      <h1 class="heading">${TemplateHelpers.processTextWithLineBreaks(data.headline, { delimiter: "/n" })}</h1>
+      <h2 class="subheading">${TemplateHelpers.processTextWithLineBreaks(data.subHeadline, { delimiter: "/n" })}</h2>
+      
+      <img src="${data.heroImage}" class="hero-image" alt="IndusInd Bank">
+      <img src="${data.brandLogo}" class="brand-logo" alt="Brand Logo">
+      
+      <div class="offers-container">
+        <div class="offer-box">
+          <div class="offer-text">${TemplateHelpers.processTextWithLineBreaks(data.offertext1, { color: "#97272b" })}</div>
+          <a href="${data.promoCodeLink1}" target="_blank" class="promo-code">Promo Code: <strong>${data.promoCode1}</strong></a>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="offer-box">
+          <div class="offer-text">${TemplateHelpers.processTextWithLineBreaks(data.offertext2, { color: "#97272b" })}</div>
+          <a href="${data.promoCodeLink2}" target="_blank" class="promo-code">Promo Code: <strong>${data.promoCode2}</strong></a>
+        </div>
+      </div>
+      
+      <div class="offer-end">${TemplateHelpers.processTextWithLineBreaks(data.offerEndText, { delimiter: "/n" })}</div>
+      
+      <a href="${data.ctaUrl}" class="cta-button" target="_blank">
+        ${TemplateHelpers.processTextWithLineBreaks(data.ctaText, { delimiter: "/n" }) || "Shop Now"}
+      </a>
+    </div>
+    
+    <div class="footer">
+      ${TemplateHelpers.getSocialIcons(data.color, lightColor)}
+      ${TemplateHelpers.getFooter(data.tncUrl)}
+    </div>
+  </div>
+</body>
+</html>
+`;
+}
+if (functionName === "preview") {
+  return getTemplate4preview(data, TemplateHelpers, lightColor);
+} else {
+  return getTemplate4(data, TemplateHelpers, lightColor);
+}
