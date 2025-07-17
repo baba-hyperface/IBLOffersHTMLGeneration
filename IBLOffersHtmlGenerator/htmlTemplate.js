@@ -296,21 +296,24 @@ async function htmlTemplate(data, templateName) {
   const lightColor = isLightColor(data.color || "#ffffff");
   let selectedTemplate;
   const templateMap = {
-    template1: template1,
-    template2: template2,
-    template3: template3,
-    template4: template4,
-    template5: template5,
-    template6: template6,
-    //  template7: template7,
-    //  template8: template8
+    template1: T1_1Brand_indusMoments_1Offer_1PromoCode,
+    template2: T2_1Brand_indusMoments_2Offer_2PromoCode,
+    template3: T3_2Brand_indusMoment_2Brands_1Offer,
+    template4: T4_1Brand_Network_2Offer_2promoCode,
+    template5: T5_2Brand_Network_2Brand_1Offer,
+    template6: T6_3Brand_indusMoment_3Brands_1Offer,
+    template7: T7_3Brand_network_3Brand_1Offer,
+    template8: PT8_1Brand_indusMoments_1Offer_1PromoCode_network,
+    template9: PT9_4Brand_indusMoment_4Brand_1Offer,
+    template10 : PT10_4Brand_network_4Brand_1Offer,
   };
   if (templateMap[templateName]) {
     selectedTemplate = await templateMap[templateName].trigger({
       additionalScope: {
         data: data,
         TemplateHelpers: TemplateHelpers,
-        lightColor: lightColor
+        lightColor: lightColor,
+        functionName: "generate"
       },
     });
   } else {

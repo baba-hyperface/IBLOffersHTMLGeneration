@@ -208,7 +208,7 @@ function getTemplate7(data, TemplateHelpers, lightColor) {
                                     <tbody>
                                         <tr>
                                         <td align="center" valign="middle"
-                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #000000; padding: 20px;background:${
+                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #000000; padding: 5px 0px 20px 0px;background:${
                                             data.backgroundColor
                                           }"
                                           class="pdlr pdtb">
