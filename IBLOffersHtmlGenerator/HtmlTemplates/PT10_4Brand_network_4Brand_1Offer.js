@@ -156,27 +156,26 @@ body, table, td, p, a, li, blockquote {
 <body>
  
 <div style="font-size:1px; color:#ffffff; line-height:1px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; display:none;"></div>
-<table class="table" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:${
-    data.backgroundColor
-  };">
+<table class="table" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" >
   <tbody>
      
     <tr>
-      <td align="center" valign="middle" class="mobile" style="background-color:#ffffff;"><table class="table" align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="width: 600px; margin: 0 auto;background-color:${
-        data.backgroundColor
-      };">
+      <td align="center" valign="middle" class="mobile">
+      <table class="table" align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="width: 600px; margin: 0 auto;max-width:600px;">
           <tbody>
             <tr>
-              <td align="center">
-				  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <td align="center" style="background-color:${
+        data.backgroundColor
+      };">
+				  <table width="100%" border="0" cellspacing="0" cellpadding="0"  bgcolor="${data.backgroundColor}" style="background-color: ${data.backgroundColor};">
   <tbody>
     <tr>
-      <td align="center" valign="top" style="padding: 1px;" bgcolor="#cccccc">
+      <td align="center" valign="top" style="padding: 1px;"  bgcolor="${data.backgroundColor}" style="background-color: ${data.backgroundColor};">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
-      <td align="center" valign="top" bgcolor="#ffffff">
-		<table class="table" width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
+      <td align="center" valign="top"  bgcolor="${data.backgroundColor}" style="background-color: ${data.backgroundColor};">
+		<table class="table" width="100%" border="0" cellpadding="0" cellspacing="0" align="center"  bgcolor="${data.backgroundColor}" style="background-color: ${data.backgroundColor};">
                   <tbody>
 					  <tr>
       <td align="center" valign="middle" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #000000; padding: 20px 20px 20px 20px;" class="pdlr pdtb">
@@ -495,14 +494,15 @@ function getTemplate3preview(data, TemplateHelpers, lightColor) {
     }
     
     .header {
-      background-color: #ffffff;
       padding: 20px;
+      background-color: ${data.backgroundColor};
     }
     
     .logo-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background-color: ${data.backgroundColor};
     }
     
     .logo {
@@ -511,7 +511,7 @@ function getTemplate3preview(data, TemplateHelpers, lightColor) {
     }
     
     .main-content {
-      background-color: #ffffff;
+      background-color: ${data.backgroundColor};
       padding: 0 15px;
     }
     
