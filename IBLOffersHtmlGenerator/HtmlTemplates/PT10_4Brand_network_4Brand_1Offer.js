@@ -200,7 +200,7 @@ body, table, td, p, a, li, blockquote {
          data.headingLine,
          { delimeter: "/n" }
        )} </strong>
-       
+               
        ${TemplateHelpers.processTextWithLineBreaks(data.subHeadingLine, {
          delimeter: "/n",
        })}</td>
