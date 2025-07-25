@@ -145,7 +145,7 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
   <table class="table" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:0 auto;padding:0;max-width:600px;">
     <tbody>
       <tr>
-        <td align="center" valign="middle" style="font-family: Arial; font-size: 14px; line-height: 18px; color: #000000; padding: 30px 20px 10px 25px;max-width:600px;background-color:${data.color}">
+        <td align="center" valign="middle" style="font-family: Arial; font-size: 14px; line-height: 18px; color: #000000; padding: 30px 20px 10px 20px;max-width:600px;background-color:${data.color}">
           ${TemplateHelpers.getNavbarTwoLogos(data, data.networklogo)}
         </td>
       </tr>

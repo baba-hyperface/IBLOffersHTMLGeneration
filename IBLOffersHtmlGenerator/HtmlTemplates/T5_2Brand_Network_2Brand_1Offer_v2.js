@@ -213,7 +213,7 @@ function getTemplate3(data, TemplateHelpers, lightColor) {
                                           <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                             <tbody>
                                               <tr>
-                                                        <td align="left" valign="middle" style="padding: 18px; background-color:${
+                                                        <td align="left" valign="middle" style="padding: 0px; background-color:${
                                                           data.backgroundColor
                                                         };">
                                                         <a href="https://left-image-link.com/" target="_blank" style="text-decoration: none;">
@@ -228,7 +228,7 @@ function getTemplate3(data, TemplateHelpers, lightColor) {
                                                         </a>
                                                         </td>
                                                         <td style="width: 100%;"></td><!-- This cell expands to fill remaining space -->
-                                                        <td align="right" valign="middle" style="padding: 8px; background-color:${
+                                                        <td align="right" valign="middle" style="padding: 0px; background-color:${
                                                           data.backgroundColor
                                                         };">
                                                         <a href="https://www.indusind.com/"
@@ -244,7 +244,7 @@ function getTemplate3(data, TemplateHelpers, lightColor) {
                                         </td>
                                       </tr>
                                       <tr>
-                                        <td align="center" valign="top" style="padding: 30px 0 10px 0; background-color:${
+                                        <td align="center" valign="top" style="padding: 20px 0 10px 0; background-color:${
                                           data.backgroundColor
                                         };"
                                           class="pdlr pdtb">
