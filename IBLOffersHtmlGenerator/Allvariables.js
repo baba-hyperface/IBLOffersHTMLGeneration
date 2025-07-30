@@ -272,4 +272,16 @@ const allvariables = {
     "tncUrl",
     "color",
   ],
+  template15: [
+    "brandLogo",
+    "headline",
+    "subHeadline",
+    "heroImage",
+    "offerText1",
+    "ctaText1",
+    "ctaUrl1",
+    "offerEndText",
+    "tncUrl",
+    "color",
+  ],
 };
