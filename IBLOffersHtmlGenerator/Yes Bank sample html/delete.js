@@ -4,6 +4,151 @@ async function htmlTemplate(data, templateName) {
     data = {};
   }
   const TemplateHelpers = {
+
+
+    getStyles: () => `
+    <style type="text/css">
+      body { margin: 0; padding: 0; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; }
+      body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+      table { border-collapse: collapse; border-spacing: 0; }
+      table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+      td { border-collapse: collapse; }
+      a { color: #002ecb; text-decoration: none; }
+      @media all and (max-width: 640px) {
+        .table { width: 100% !important; }
+        .responsive-image img { max-width: 100% !important; height: auto !important; }
+        .hide { display: none !important; }
+        .pdlr { padding-left: 15px !important; padding-right: 15px !important; }
+        .heading { font-size: 24px !important; }
+        .subheading { font-size: 18px !important; }
+      }
+    </style>
+  `,
+
+  getHeader: (data) => `
+		<table width="500" border="0" cellpadding="0" cellspacing="0" align="center" style="width: 500px;" role="presentation" class="table">
+                  <tbody>
+					  <tr>
+					     <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #000082; padding: 0;" class="responsive-image"><img src="${data.header || 'https://demo.forecastadvtg.com/projects/Hyperface/2025/email/yes/header.png'}"  alt="Yes Bank" width="500" style="display: block; width: 500px; height: auto;"/></td>
+					    </tr>			   
+					   
+					  </tbody>
+                </table>
+  `,
+    getHeadlines:(TemplateHelpers,data)=>`
+		<table width="500" border="0" cellpadding="0" cellspacing="0" align="center" style="width: 500px;" role="presentation" class="table">
+                  <tbody>
+					  
+					  <tr>
+					    <td align="center" valign="top" style="padding: 30px 0 30px 0;" class="pdlr pdtb">
+					      <table width="465" border="0" cellspacing="0" cellpadding="0" style="width: 465px; margin: 0 auto;" class="table" role="presentation" align="center">
+					        <tbody>
+					          <tr>
+					            <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 30px; line-height:34px; mso-line-height-rule: exactly; color: #000082; padding: 0; font-weight: bold;" class="heading" role="heading" aria-level="1">${TemplateHelpers.processTextWithLineBreaks(data.Heading)}</td>
+					            </tr>
+								<tr>
+								<td align="center" valign="top" style="padding: 10px 0 0 0;">
+									<table width="365" border="0" cellspacing="0" cellpadding="0" style="width: 365px;" class="table" align="center" role="presentation">
+  <tbody>
+    <tr>
+					            <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 20px; line-height: normal; color: #0023c8; padding: 0; font-weight: normal;" class="subheading"><strong>Enjoy</strong> <span style="font-size: 34px; font-weight: 800;">1% waiver*</span> 
+                                ${TemplateHelpers.processTextWithLineBreaks(data.subHeadline,{fontSize: "34px", fontWeight: "800",color: "#002ecb"})}</td>
+					            </tr>
+								<!-- <tr>
+					            <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 20px; line-height: 24px; mso-line-height-rule: exactly; color: #0023c8; padding: 0; font-weight: bold;" class="subheading">
+on markup fee on ₹25,000 spends with your YES BANK Credit Card ending with 6344</td>
+					            </tr> -->
+	  <tr>
+	  <td align="center" valign="top" style="padding: 30px 0 0 0;" class="pdtop15">
+		  <table border="0" cellspacing="0" cellpadding="0" align="center" role="presentation">
+  <tbody>
+    <tr>
+      <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; color: #ffffff; background: #e71f48; border-radius: 50px; padding: 12px 20px 10px 20px; line-height: 14px; mso-line-height-rule: exactly; text-transform: uppercase;"><a href="${data.ctaUrl}" target="_blank" style="color: #ffffff; text-decoration: none;"><strong style="color: #ffffff; text-decoration: none;">${TemplateHelpers.processTextWithLineBreaks(data.ctaText,{color:"#FFF"})}</strong></a></td>
+    </tr>
+  </tbody>
+</table>
+
+		  </td>
+	  </tr>
+  </tbody>
+</table>
+
+									</td>
+								</tr> 
+					          </tbody>
+  </table>
+					      </td>
+					    </tr>
+					   
+					  </tbody>
+                </table>
+`,
+
+  getFooterLinks: () => `
+    <table width="500" border="0" cellpadding="0" cellspacing="0" align="center" style="width: 500px;" role="presentation" class="table">
+                  <tbody>					   
+					   
+					  <tr>
+					    <td align="center" valign="top" style="padding: 15px 0; font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 16px; color: #ffffff; text-decoration: none; text-transform: uppercase;" bgcolor="#002ecb">
+					       <a href="#" target="_blank" style="color: #ffffff; text-decoration: none;"><strong style="color: #ffffff; text-decoration: none;">Credit Cards</strong></a> &nbsp;|&nbsp; <a href="#" target="_blank" style="color: #ffffff; text-decoration: none;"><strong style="color: #ffffff; text-decoration: none;">Offers</strong></a> </td>
+					    </tr>
+					  </tbody>
+                </table>
+  `,
+
+  getYesBankFooter: () => `
+    <table width="500" border="0" cellpadding="0" cellspacing="0" align="center" style="width: 500px;" role="presentation" class="table">
+                  <tbody>					   
+					   
+					  <tr>
+					    <td align="center" valign="top" style="padding: 20px 0;" class="pdlr pdtb">
+					      <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" align="center">
+					                <tbody>
+					                  <tr>
+					                    <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: 16px; color: #414242;">
+											Terms &amp; Conditions Apply, To know more <a href="${data.tncUrl}" target="_blank" style="color: #414242; text-decoration: underline;">click&nbsp;here</a>.</td>
+					                    </tr>
+					                  <tr>
+					                    <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: 16px; color: #414242; padding-top: 20px;">
+					                      <table border="0" cellspacing="0" cellpadding="0" role="presentation" align="center">
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="30" style="width: 30px;"><a href="#" target="_blank" style="text-decoration: none;"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/yes/fb.png" width="25" height="25" alt="Facebook" style="display: block;"/></a></td>
+	  <td align="center" valign="top" width="30" style="width: 30px;"><a href="#" target="_blank" style="text-decoration: none;"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/yes/insta.png" width="25" height="25" alt="Instagram" style="display: block;"/></a></td>
+	 <td align="center" valign="top" width="30" style="width: 30px;"><a href="#" target="_blank" style="text-decoration: none;"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/yes/twitter.png" width="25" height="25" alt="Twitter" style="display: block;"/></a></td>
+		<td align="center" valign="top" width="30" style="width: 30px;"><a href="#" target="_blank" style="text-decoration: none;"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/yes/youtube.png" width="25" height="25" alt="Youtube" style="display: block;"/></a></td>
+		<td align="center" valign="top" width="30" style="width: 30px;"><a href="#" target="_blank" style="text-decoration: none;"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/yes/linkedin.png" width="25" height="25" alt="Linkedin" style="display: block;"/></a></td>
+    </tr>
+  </tbody>
+</table>
+					                      
+					                      </td>
+					                    </tr>
+					                  
+					                  </tbody>
+					                </table>
+					      </td>
+					    </tr>
+					  </tbody>
+                </table>
+  `,
+
+  getDisclaimer: () => `
+    <table width="500" border="0" cellpadding="0" cellspacing="0" align="center"  style="width: 500px;" role="presentation" class="table">
+                  <tbody>					   
+					   
+					  <tr>
+					    <td align="center" valign="top" style="padding: 15px 0; font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: 16px; color: #414242; text-decoration: none;">					      
+Please do not reply to this email, this is sent from an unattended mail box. For any queries or concerns, please <a href="#" target="_blank" style="color: #002ecb; text-decoration: underline;">click here</a>.<br>
+To unsubscribe, you may opt out <a href="#" target="_blank" style="color: #002ecb; text-decoration: underline;">here</a>.</td>
+				    </tr>
+					  </tbody>
+                </table>
+  `,
+
+
+
+    
     getFooter: function (tncUrl) {
       return `<table class="footer" role="presentation" cellspacing="0" cellpadding="0" width="100%"
        style="background-color: #97282b; color: #FFF; font-size: 12px; font-weight: 400; text-align: center; border-collapse: collapse; width: 100%; min-width: 300px;font-family: Arial;">
@@ -187,13 +332,15 @@ async function htmlTemplate(data, templateName) {
     processText: function (text, options = {}) {
       if (!text) return "";
 
-      const styles = {
-        color: options.color || "#97272b",
-        fontWeight: options.bold ? "bold" : "normal",
-        fontSize: options.size || "inherit",
-        fontStyle: options.italic ? "italic" : "normal",
-        textDecoration: options.underline ? "underline" : "none",
-      };
+      
+  const styles = {
+    color: options.color || "#97272b",
+  fontWeight: options.fontWeight || "normal",
+    fontSize: options.size || "inherit",
+    fontStyle: options.fontStyle || "normal",
+    textDecoration: options.underline ||  "none",
+    ...(options.style || {})
+  };
 
       const styleString = Object.entries(styles)
         .map(([key, value]) => `${key}:${value}`)
@@ -210,10 +357,12 @@ async function htmlTemplate(data, templateName) {
       if (!text || typeof text !== "string") return "";
       return text.split(delimiter).join("<br>");
     },
+
+
      processTextWithLineBreaks:function(text, options = {}) {
   if (!text || typeof text !== "string") return "";
 
-  const styles = {
+const styles = {
     color: options.color || "#97272b",
     fontWeight: options.fontWeight || "normal",
     fontSize: options.fontSize || "inherit",
@@ -221,10 +370,13 @@ async function htmlTemplate(data, templateName) {
     textDecoration: options.underline ||  "none",
     ...(options.style || {})
   };
+       console.log("options",options);
+       console.log("styles",styles);
 
-  const styleString = Object.entries(styles)
-    .map(([key, value]) => `${key}:${value}`)
-    .join(";");
+const styleString = Object.entries(styles)
+  .map(([key, value]) => `${key.replace(/([A-Z])/g, '-$1').toLowerCase()}:${value}`)
+  .join(";");
+
 
   const tag = options.tag || "strong";
   const delimiter = options.delimiter || "/n";
@@ -234,11 +386,11 @@ async function htmlTemplate(data, templateName) {
     /\*\*(.*?)\*\*/g,
     `<${tag} style="${styleString}">$1</${tag}>`
   );
-   processed = processed.replace(
+       
+processed = processed.replace(
     /\^(.*?)\^/g,
     `<sup style="vertical-align: text-top;line-height: .6em;mso-ansi-font-size: 100%; font-size: 68%;">$1</sup>`
   );
-
 
   // Step 2: Replace custom line break delimiter with <br>
   processed = processed.split(delimiter).join("<br>");
@@ -302,21 +454,9 @@ async function htmlTemplate(data, templateName) {
   const lightColor = isLightColor(data.color || "#ffffff");
   let selectedTemplate;
   const templateMap = {
-    template1: T1_1Brand_indusMoments_1Offer_1PromoCode,
-    template2: T2_1Brand_indusMoments_2Offer_2PromoCode,
-    template3: T3_2Brand_indusMoment_2Brands_1Offer,
-    template4: T4_1Brand_Network_2Offer_2promoCode,
-    template5: T5_2Brand_Network_2Brand_1Offer,
-    template6: T6_3Brand_indusMoment_3Brands_1Offer,
-    template7: T7_3Brand_network_3Brand_1Offer,
-    template8: PT8_1Brand_indusMoments_1Offer_1PromoCode_network,
-    template9: PT9_4Brand_indusMoment_4Brand_1Offer,
-    template10 : PT10_4Brand_network_4Brand_1Offer,
-    template11 : PT11_6Brand_Network_1Offer,
-    template12 : PT12_6Brand_IndusMoment,
-    template13 : PT13_1Brand_IndusMoment_NopromoCode,
-    template14 : PT14_1Brand_Network_NoPromoCode,
-    template15 : PT15_1Brand_Network,
+    template1: Template2,
+    template2: Template4,
+    
   };
   if (templateMap[templateName]) {
     selectedTemplate = await templateMap[templateName].trigger({

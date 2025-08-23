@@ -1,44 +1,62 @@
-function getTemplate14(data, TemplateHelpers, lightColor) {
+function getTemplate15(data, TemplateHelpers, lightColor) {
   return `<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
   <title>IndusInd Bank</title>
   <style type="text/css">
     body {
-      margin: 0 auto;
+      margin: 0;
       padding: 0;
       -webkit-text-size-adjust: none;
       -ms-text-size-adjust: none;
     }
-    body, table, td, a {
+
+    body,
+    table,
+    td,
+    a {
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
     }
+
     table {
       border-collapse: collapse;
       border-spacing: 0;
     }
-    table, td {
+
+    table,
+    td {
       mso-table-lspace: 0pt;
       mso-table-rspace: 0pt;
     }
+
     td {
       border-collapse: collapse;
     }
+
     a {
       color: #8d051e;
       text-decoration: none;
     }
+
     @media all and (max-width: 640px) {
-      body, table, td, p, a, li, blockquote {
+
+      body,
+      table,
+      td,
+      p,
+      a,
+      li,
+      blockquote {
         -webkit-text-size-adjust: none !important;
       }
+
       .table {
         width: 100% !important;
         clear: both !important;
         display: table !important;
       }
+
       .td-block {
         display: block !important;
         min-width: 100% !important;
@@ -47,101 +65,129 @@ function getTemplate14(data, TemplateHelpers, lightColor) {
         clear: both !important;
         float: left !important;
       }
+
       .responsive-image img {
         height: auto !important;
         max-width: 100% !important;
         width: 100% !important;
       }
+
       .hide {
         display: none !important;
         width: 100% !important;
       }
+
       .pdlr {
         padding-left: 15px !important;
         padding-right: 15px !important;
       }
+
       .pdtb {
         padding-top: 15px !important;
         padding-bottom: 15px !important;
       }
+
       .pdtop15 {
         padding-top: 15px !important;
       }
+
       .pdbot15 {
         padding-bottom: 15px !important;
       }
+
       .pdnone {
         padding: 0 !important;
       }
+
       .hauto {
         height: auto !important;
       }
+
       .heading {
         font-size: 24px !important;
         line-height: normal !important;
         letter-spacing: 1px !important;
       }
+
       .subheading {
         font-size: 18px !important;
         line-height: 24px !important;
         letter-spacing: .5px !important;
       }
+
       .mtext {
         font-size: 14px !important;
         line-height: 21px !important;
       }
+
       .center {
         text-align: center !important;
       }
-      .center img, .center table {
+
+      .center img,
+      .center table {
         margin: 0 auto;
       }
+
       .p-top-5 {
         padding-top: 3px !important;
         vertical-align: top !important;
       }
+
       .p-top-51 {
         padding-top: 0 !important;
         vertical-align: top !important;
       }
+
       .b-top {
         border: none !important;
         border-top: 1px solid #b9b9b9 !important;
       }
+
       .mob-hide {
         display: none !important;
       }
+
       .mob-show {
         display: block !important;
       }
+
       .text-left {
         text-align: left !important;
       }
+
       .text-center {
         text-align: center !important;
       }
-      .text-center table, .text-center img {
+
+      .text-center table,
+      .text-center img {
         margin: 0 auto !important;
       }
+
       .pdtop10 {
         padding-top: 10px !important;
       }
+
       .logo {
         height: 20px !important;
         min-height: 20px !important;
         max-height: 20px !important;
         width: auto !important;
       }
+
       .main-logo {
         height: 20px !important;
         min-height: 20px !important;
         max-height: 20px !important;
         width: auto !important;
       }
+
       .table-center {
         float: none !important;
         margin: 0 auto !important;
       }
+
       .font-16 {
         font-size: 16px !important;
         line-height: 20px !important;
@@ -150,149 +196,508 @@ function getTemplate14(data, TemplateHelpers, lightColor) {
   </style>
 </head>
 
-<body style="margin: 0 auto; padding:0px;width:600px;"> 
-  <!-- Main email container -->
-  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="${
-    data.color
-  }" style="background-color:${data.color};padding:0; margin:0 auto;">
-    <tr>
-      <td align="center" valign="top" bgcolor="${
-        data.color
-      }" style="background-color:${data.color};padding:25px 20px 10px 20px;"> 
-        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width:600px; background-color:${
-          data.color
-        };" bgcolor="${data.color}">
-          <!-- Header with logos -->
-        <tr>
-            <td align="center" style="padding:0; background-color:${
-              data.color
-            };" bgcolor="${data.color}">
-                ${TemplateHelpers.getNavbarTwoLogos(data, data.brandLogo)} 
-            </td>
-            </tr>
-          
-          <!-- Main heading -->
-          <tr>
-            <td align="center" style="padding:35px 0 10px 0; background-color:${
-              data.color
-            };" bgcolor="${data.color}"> 
-              <table width="520" border="0" cellspacing="0" cellpadding="0" style="width:100%; max-width:520px; background-color:${
-                data.color
-              };" bgcolor="${data.color}"> 
+<body>
+
+  <div
+    style="font-size:1px; color:#ffffff; line-height:1px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; display:none;">
+  </div>
+  <table class="table" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+
+      <tr>
+        <td align="center" valign="middle" class="mobile" ">
+          <table class="table" align="center" border="0" cellpadding="0" cellspacing="0" width="600"
+            style="width: 600px; margin: 0 auto;">
+            <tbody>
               <tr>
-                  <td align="center" valign="top" style="font-family:Arial; font-size:36px; line-height:44px; color:#972629; padding:0; font-weight:bold; background-color:${
-                    data.color
-                  };" bgcolor="${data.color}" class="heading">  ${TemplateHelpers.processTextWithLineBreaks(data.headline,{delimiter:"/n"})}
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center" valign="top" style="font-family:Arial; font-size:22.5px; line-height:31px; color:#000000; padding:5px 0 0 0; background-color:${
-                    data.color
-                  };" bgcolor="${data.color}" class="subheading"> 
-                    ${TemplateHelpers.processTextWithLineBreaks(data.subHeadline, {
-                      color: "#000000",
-                    })}
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          
-          <!-- Banner image -->
-          <tr>
-            <td align="center" valign="top" class="responsive-image" style="background-color:${
-              data.color
-            };margin:auto;" bgcolor="${data.color}">
-              <a href="https://www.indusmoments.com/offers/BOOMINS" target="_blank" style="text-decoration:none;">
-                <img src='${
-                  data.heroImage
-                }' width="600" alt="IndusInd Bank" style="display:block; width:100%; max-width:600px; height:auto; margin:0 auto; border:0;">
-              </a>
-            </td>
-          </tr>
+                <td align="center">
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td align="center" valign="top" style="padding: 1px;" bgcolor="${data.backgroundColor}">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="${data.backgroundColor}">
+                            <tbody>
+                              <tr>
+                                <td align="center" valign="top" bgcolor="${data.backgroundColor}">
+                                  <table class="table" width="100%" border="0" cellpadding="0" cellspacing="0"
+                                    align="center" bgcolor="${data.backgroundColor}">
+                                    <tbody>
+                                      <tr>
+                                        <td align="center" valign="middle"
+                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #000000; padding: 20px 20px 10px 25px;"
+                                          class="pdlr pdtb">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                              <tr>
+                                                <td align="left" valign="top"><img
+                                                    src="${data.brandLogo}"
+                                                    alt="Boombay"
+                                                    style="display: block; width: auto; min-height: 28px; max-height: 28px; height: 28px;"
+                                                    class="main-logo" /></td>
+                                                <td align="right" valign="top"><a href="https://www.indusind.com/"
+                                                    target="_blank" style="text-decoration: none;"><img
+                                                      src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/logo.png"
+                                                      alt="IndusInd Bank"
+                                                      style="display: block; width: auto; min-height: 28px; max-height: 28px; height: 28px;"
+                                                      class="main-logo" /></a></td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
 
-        
-
-
-          <tr>
-            <td align="center" valign="top" style="padding: 15px 0 0 0; background-color:${data.color};margin:auto;"
-                class="pdlr">
-                <table width="472" border="0" cellspacing="0" cellpadding="0"
-                style="width: 472px; background-color:${data.color};" role="presentation" class="table"
-                align="center">
-                <tbody>
-                    <tr>
-                    <td align="left" valign="top" style="padding:0px;padding-bottom: 20px; background-color:${data.color};">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                        align="center" role="presentation" bgcolor="${data.color}">
-                        <tbody>
-                            <tr>
-                            <td align="left" valign="top"
-                                style="padding: 15px; border: 1px solid #000000 !important; background-color:${data.color};">
-                                <table width="100%" border="0" cellspacing="0"
-                                cellpadding="0" role="presentation" bgcolor="${data.color}">
-                                <tbody>
-                                    <tr>
-                                    <td align="left" valign="middle" width="340"
-                                        style="width: 300px; padding:0px;background-color:${data.color};">
-                                        <table width="100%" border="0" cellspacing="0"
-                                        cellpadding="0" bgcolor="${data.color}">
-                                        <tbody>
-                                            <tr>
-                                            <td align="left" valign="middle"
-                                                style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 20px; line-height: 24px; color: #000000; padding: 0; background-color:${data.color};"
-                                                class="td-block font-16 pdtop5">
-                                                ${TemplateHelpers.processTextWithLineBreaks(data.offerText1, { color: "#97272b" })}
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="center" valign="top" style="padding: 30px 0 10px 0;"
+                                          class="pdlr pdtb">
+                                          <table width="520" border="0" cellspacing="0" cellpadding="0"
+                                            style="width: 520px;" class="table">
+                                            <tbody>
+                                              <tr>
+                                                <td align="center" valign="top"
+                                                  style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 36px; line-height: 44px; color: #972629; padding: 0; font-weight: bold;"
+                                                  class="heading">${TemplateHelpers.processTextWithLineBreaks(data.headline)}</td>
+                                              </tr>
+                                              <tr>
+                                                <td align="center" valign="top"
+                                                  style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 22.5px; line-height: 31px; color: #000000; padding: 5px 0 0 0;"
+                                                  class="subheading">${TemplateHelpers.processTextWithLineBreaks(data.subHeadline)}</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="center" valign="top"
+                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 18px; line-height: 21px; color: #000000; padding: 0px 20px 0px 20px; font-weight: bold;"
+                                          class="responsive-image pdlr"><a
+                                            href="https://www.indusmoments.com/offers/BOOMINS" target="_blank"
+                                            style="text-decoration: none;"><img
+                                              src="${data.heroImage}"
+                                              height="400" alt="IndusInd Bank"
+                                              style="display: block; width: auto; height: 400px; margin: 0 auto;max-width:580px;" /></a>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="center" valign="top" style="padding: 15px 15px 0 15px;">
+                                          <table width="450" border="0" cellspacing="0" cellpadding="0"
+                                            style="width: 450px;" class="table">
+                                            <tbody>
+                                              <tr>
+                                                <td align="center" valign="top" class="pdlr">
+                                                  <table width="100%" border="0" cellspacing="0" cellpadding="0"
+                                                    role="presentation" align="center">
+                                                    <tbody>
+                                                      <tr>
+                                                        <th align="center" valign="top" class="td-block text-center"
+                                                          style="font-weight: normal;padding-bottom: 30px;">
+                                                          <table border="0" cellspacing="0" cellpadding="0"
+                                                            align="center" role="presentation" class="table">
+                                                            <tbody>
+                                                              <tr>
+                                                                <td align="center" valign="top"
+                                                                  style="padding: 15px 15px; border: 1px solid #000000;"
+                                                                  class="pdtb">
+                                                                  <table border="0" cellspacing="0" cellpadding="0"
+                                                                    align="center">
+                                                                    <tbody>
+                                                                      <tr>
+                                                                        <td align="center" valign="top"
+                                                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 21px; line-height: 26px; color: #000000; padding: 0; font-weight: normal;">
+                                                                            <td align="left" valign="middle"
+                                                                            style="height: 34px; font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 20px; mso-line-height-rule:exactly; line-height: 20px; font-weight: normal; color: #ffffff; text-decoration: none; padding: 10px; vertical-align: middle; border-radius: 2px;"
+                                                                             height="34"><a
+                                                                                href="https://www.indusmoments.com/offers/BOOMINS"
+                                                                                style="color: #000; text-decoration: none;"
+                                                                                target="_blank">
+                                                                            ${TemplateHelpers.processTextWithLineBreaks(data.offerText,{color:"#97272b"})} 
+                                                                            </a></td>
+                                                                              
+                                                                            <td align="right" valign="middle"
+                                                                            style="height: 34px; background: #97272b; font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 20px; mso-line-height-rule:exactly; line-height: 20px; font-weight: normal; color: #ffffff; text-decoration: none; padding: 10px; vertical-align: middle; border-radius: 5px; text-transform: uppercase;"
+                                                                            bgcolor="#97272b" height="34"><a
+                                                                                href="${data.ctaUrl}"
+                                                                                style="color: #ffffff; text-decoration: none;"
+                                                                                target="_blank"><strong
+                                                                                style="color: #ffffff; text-decoration: none;white-space:nowrap;">${TemplateHelpers.processTextWithLineBreaks(data.ctaText)}</strong></a></td>
+                                                                        </td> 
+                                                                      </tr>
+                                                                    </tbody>
+                                                                  </table>
+                                                                </td>
+                                                              </tr>
+                                                            </tbody>
+                                                          </table>
+                                                        </th>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
                                                 </td>
-                                            </tr>
-                                        </tbody>
-                                        </table>
-                                    </td>
-                                    <td align="right" valign="middle" style="background-color:${data.color};padding: 0px;">
-                                        <table width="120" border="0" cellspacing="0"
-                                        cellpadding="0" style="width: 120px; background-color:${data.color};">
-                                        <tbody>
-                                            <tr>
-                                            <td align="center" valign="top"
-                                                height="45"
-                                                style="background: #97272b; border-radius: 5px; height: 45px;font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 16px; line-height: 16px; color: #ffffff; text-transform: uppercase; background-color:${data.color};padding: 0px;">
-                                                <a href="${data.ctaUrl1}"
-                                                target="_blank"
-                                                style="display: block; height: 45px; color: #ffffff; line-height: 45px; text-decoration: none; background-color:#97272b;padding:5px 10px;"><strong
-                                                    style="color: #ffffff; text-decoration: none;">${TemplateHelpers.processTextWithLineBreaks(data.ctaText1, {delimiter: "/n"})}</strong></a></td>
-                                            </tr>
-                                        </tbody>
-                                        </table>
-                                    </td>
-                                    </tr>
-                                </tbody>
-                                </table>
-                            </td>
-                            </tr>
-                        </tbody>
-                        </table>
-                    </td>
-                    </tr>
-                </tbody>
-                </table>
-            </td>
-        </tr>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                      ${data.offerEndTextRequire === "true"? `
+                                      <tr>
+                                        <td align="center" valign="top"
+                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #97272b; padding: 0px 0 20px 0;background-color: ${data.backgroundColor};"
+                                          class="pdtb" >
+                                          ${TemplateHelpers.processTextWithLineBreaks(data.offerEndText)}
+                                          </td>
+                                      </tr>`
+                                      :``}
+                                      <tr>
+                                        <td align="left" valign="top" bgcolor="${data.backgroundColor}"
+                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #000000; padding: 0 0 0 0;">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                              <tr>
+                                                <td align="left" valign="bottom" width="61"><img
+                                                    src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/bull.png"
+                                                    width="40" alt="IndusInd Bank"
+                                                    style="display: block; width: 40px;" /></td>
+                                                <td align="right" style="padding: 0 15px 10px 0;" valign="bottom">
+                                                  <table border="0" cellspacing="0" cellpadding="0" align="right">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td align="center" valign="middle"
+                                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 10px; line-height: normal; color: #97272b; padding: 0 3px 0 0;">
+                                                          Connect with us:</td>
+                                                        <td align="center" valign="middle"
+                                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: normal; color: #97272b; padding: 0 0 0 0;">
+                                                          <a href="https://www.facebook.com/OfficialIndusIndBankPage"
+                                                            target="_blank" style="text-decoration: none;"><img
+                                                              src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/facebook.png"
+                                                              alt="Facebook" width="16"
+                                                              style="display: block; width: 16px;" /></a></td>
+                                                        <td align="center" valign="middle"
+                                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: normal; color: #97272b; padding: 0 5px 0 5px;">
+                                                          <a href="https://www.instagram.com/indusind_bank/"
+                                                            target="_blank" style="text-decoration: none;"><img
+                                                              src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/instagram.png"
+                                                              alt="Instagram" width="16"
+                                                              style="display: block; width: 16px;" /></a></td>
+                                                        <td align="center" valign="middle"
+                                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: normal; color: #97272b; padding: 0 0 0 0;">
+                                                          <a href="https://www.threads.net/@indusind_bank"
+                                                            target="_blank" style="text-decoration: none;"><img
+                                                              src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/at.png"
+                                                              alt="Threads" width="14"
+                                                              style="display: block; width: 14px;" /></a></td>
+                                                        <td align="center" valign="middle"
+                                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: normal; color: #97272b; padding: 0 5px 0 5px;">
+                                                          <a href="https://www.linkedin.com/company/indusind-bank"
+                                                            target="_blank" style="text-decoration: none;"><img
+                                                              src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/linkedin.png"
+                                                              alt="LinkedIn" width="16"
+                                                              style="display: block; width: 16px;" /></a></td>
+                                                        <td align="center" valign="middle"
+                                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: normal; color: #97272b; padding: 0 0 0 0;">
+                                                          <a href="https://twitter.com/myindusindbank" target="_blank"
+                                                            style="text-decoration: none;"><img
+                                                              src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/twitter.png"
+                                                              alt="Twitter" width="16"
+                                                              style="display: block; width: 16px;" /></a></td>
+
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td align="right" valign="top"
+                                          style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #ffffff; padding: 10px 16px 10px 16px;"
+                                          bgcolor="#97282b">
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                              <tr>
+                                                <td align="left" valign="bottom"
+                                                  style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: 14px; color: #ffffff; padding: 0 0 0 0;"
+                                                  class="td-block"><a href="${data.tncUrl}"
+                                                    target="_blank"
+                                                    style="color: #ffffff; text-decoration: underline;">Terms and
+                                                    Conditions apply</a></td>
+                                                <td align="right" valign="bottom"
+                                                  style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: 14px; color: #ffffff; padding: 0 0 0 0;"
+                                                  class="text-left td-block pdtop10"><a
+                                                    href="https://www.indusind.com/in/en/about-us/IBL-thirdparty-disclaimer.html"
+                                                    target="_blank"
+                                                    style="color: #ffffff; text-decoration: underline;">Click here</a>
+                                                  for IndusInd Bank Disclaimer</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
 
 
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
 
-        </table>
-      </td>
-    </tr>
-    <tr>
-    <td style="background-color:${data.color};padding:0; margin:0;" bgcolor="${
-      data.color
-    }">
-        ${TemplateHelpers.getSocialIcons(data.color, lightColor)}
-        ${TemplateHelpers.getFooter(data.tncUrl)}
-    </td>
-    </tr>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </body>
 </html>`;
 }
-return getTemplate14(data,TemplateHelpers,lightColor);
+
+function getTemplate15preview(data, TemplateHelpers, lightColor) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IndusInd Bank - Boombay Offer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background: #ffffff;
+      color: #000;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: ${data.backgroundColor};
+      padding: 20px;
+    }
+    .containermain{
+      max-width: 600px;
+      margin: auto;
+      background-color: ${data.backgroundColor};
+    }
+
+    .header,
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      height: 28px;
+    }
+
+    .heading {
+      font-size: 36px;
+      color: #97272b;
+      font-weight: bold;
+      text-align: center;
+      margin: 40px 0 10px;
+    }
+
+    .subheading {
+      font-size: 22px !important;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      max-height: 400px;
+    }
+
+    .promo-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #000;
+      text-align: center;
+      margin: 20px auto;
+      width:max-content;
+      gap: 10px;
+      padding: 0px 20px;
+      max-width: 90%;
+      font-size: 18px;
+    }
+
+    .promo-box strong {
+      color: #97272b;
+    }
+    
+    .promo-code {
+      background: #97272b;
+      color: #fff;
+      display: inline-block;
+      padding: 5px 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    .promo-code strong {
+        color: #fff;
+    }
+
+    .btn {
+      background: #97272b;
+      color: #fff !important;
+      padding: 10px 25px;
+      text-decoration: none !important;
+      border-radius: 5px;
+      display: inline-block;
+      text-transform: uppercase;
+      font-weight: bold !important;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .moments-logo {
+      display: block;
+      margin: 20px auto;
+      width: 240px;
+    }
+
+    .social-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0px;
+    }
+
+    .social-icons a img {
+      width: 16px;
+      margin: 0 5px;
+    }
+
+    .footer-links {
+      background: #97272b;
+      color: #fff;
+      padding: 15px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .connecttext{
+      color: #000 !important;
+      padding-bottom:16px;
+      text-decoration: none !important;
+    }
+    @media screen and (max-width: 640px) {
+      .container {
+        padding: 15px;
+      }
+
+      .heading {
+        font-size: 24px;
+      }
+
+      .subheading {
+        font-size: 22px !important;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .social-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="containermain">
+    
+  <div class="container">
+
+    <div class="header">
+      <img class="logo" src="${data.brandLogo}" alt="Boombay" />
+      <a href="https://www.indusind.com/" target="_blank">
+        <img class="logo" src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/logo.png" alt="IndusInd Bank" />
+      </a>
+    </div>
+
+    <h1 class="heading">${TemplateHelpers.processTextWithLineBreaks(data.headline)}</h1>
+    <p class="subheading">${TemplateHelpers.processTextWithLineBreaks(data.subHeadline)}</p>
+
+    <div class="banner">
+      <a href="https://www.indusmoments.com/offers/BOOMINS" target="_blank">
+        <img src="${data.heroImage}" alt="Banner" />
+      </a>
+    </div>
+
+    <div class="promo-box">
+      <p>${TemplateHelpers.processTextWithLineBreaks(data.offerText,{fontWeight:"700"})}</p>
+          <div style="text-align:center;">
+      <a class="btn" href="${data.ctaUrl}" target="_blank">${TemplateHelpers.processTextWithLineBreaks(data.ctaText)}</a>
+    </div>
+
+    </div>
+
+    ${data.offerEndTextRequire === "true"? `
+          <div align="center" valign="top"
+            style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #97272b; padding: 15px 0 10px 0;"
+            class="pdtb">
+            ${TemplateHelpers.processTextWithLineBreaks(data.offerEndText)}
+            </div>`
+        :``}
+
+</div>
+<div class="social-footer">
+  <img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/bull.png" width="40" alt="Bull" />
+  <div class="social-icons">
+
+  <a class="connecttext">Connect with us: </a>
+    <a href="https://www.facebook.com/OfficialIndusIndBankPage"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/facebook.png" alt="Facebook" /></a>
+    <a href="https://www.instagram.com/indusind_bank/"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/instagram.png" alt="Instagram" /></a>
+    <a href="https://www.threads.net/@indusind_bank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/at.png" alt="Threads" /></a>
+    <a href="https://www.linkedin.com/company/indusind-bank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/linkedin.png" alt="LinkedIn" /></a>
+    <a href="https://twitter.com/myindusindbank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/twitter.png" alt="Twitter" /></a>
+  </div>
+</div>
+
+<div class="footer-links">
+  <a href="${data.tncUrl}" target="_blank">Terms and Conditions apply</a>
+  <span><a href="https://www.indusind.com/in/en/about-us/IBL-thirdparty-disclaimer.html" target="_blank">Click here</a> for IndusInd Bank Disclaimer</span>
+</div>
+</div>
+</body>
+</html>
+`;
+}
+
+if (functionName === "preview") {
+  return getTemplate15preview(data, TemplateHelpers, lightColor);
+} else {
+  return getTemplate15(data, TemplateHelpers, lightColor);
+}
