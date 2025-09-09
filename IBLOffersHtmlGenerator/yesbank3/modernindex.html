@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YES Bank</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f9f9f9;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      border: 5px solid #f2f2f2;
+    }
+
+    .logo img {
+      width: 100%;
+      display: block;
+    }
+
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .heading {
+      font-size: 29px;
+      color: #ea1f48;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .subheading {
+      font-size: 25px;
+      color: #000080;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      font-size: 35px;
+      font-weight: 600;
+      color: #000080;
+      margin-bottom: 10px;
+    }
+
+    .desc {
+      font-size: 20px;
+      color: #000080;
+      margin-bottom: 25px;
+    }
+
+    .cta {
+      display: inline-block;
+      background: #e71f48;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .steps {
+      font-size: 15px;
+      color: #4d4d4d;
+      margin: 35px 0 10px;
+    }
+
+    .banner {
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .banner .offer {
+      margin-bottom: 15px;
+    }
+
+    .offer-btn {
+      display: block;
+      background: #e71f48;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-radius: 50px;
+      padding: 12px;
+      margin: 10px auto;
+      max-width: 250px;
+    }
+
+    .hero img {
+      width: 100%;
+      display: block;
+    }
+
+    .tnc {
+      font-size: 12px;
+      color: #414242;
+      margin: 15px 0;
+    }
+
+    .tnc a {
+      color: #414242;
+    }
+
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px 0;
+    }
+
+    .social img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .footer {
+      background: #002ecb;
+      text-align: center;
+      padding: 15px 0;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 500px) {
+      .heading { font-size: 22px; }
+      .subheading { font-size: 18px; }
+      .highlight { font-size: 24px; }
+      .desc { font-size: 16px; }
+      .cta { font-size: 12px; padding: 8px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <img src="images/logo.png" alt="YES Bank Logo">
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="heading">${TemplateHelpers.processTextWithLineBreaks(data.Heading)}</div>
+      <div class="subheading">${TemplateHelpers.processTextWithLineBreaks(data.subHeading)}</div>
+      <div class="highlight">${TemplateHelpers.processTextWithLineBreaks(data.subHeading1)}</div>
+      <div class="desc">${TemplateHelpers.processTextWithLineBreaks(data.subHeading2)}</div>
+      <a href="${data.ctaUrl}" class="cta">${TemplateHelpers.processTextWithLineBreaks(data.ctaText)}</a>
+
+      <div class="steps"><strong>Steps to activate domestic transactions through IRIS:</strong></div>
+    </div>
+
+    <!-- Banner -->
+    <div class="banner">
+      <div class="offer">${TemplateHelpers.processTextWithLineBreaks(data.OfferEndText)}</div>
+      <a href="#" class="offer-btn">${TemplateHelpers.processTextWithLineBreaks(data.OfferEndText)}</a>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <img src="${data.heroImage}" alt="Hero Image">
+    </div>
+
+    <!-- T&C -->
+    <div class="content">
+      <div class="tnc">Terms & Conditions Apply, To know more <a href="${data.tncUrl}">click here</a>.</div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social">
+      <a href="https://www.facebook.com/YESBANK"><img src="images/facebook.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/yes_bank/"><img src="images/instagram.png" alt="Instagram"></a>
+      <a href="https://twitter.com/yesbank"><img src="images/twitter.png" alt="Twitter"></a>
+      <a href="https://www.youtube.com/yesbank"><img src="images/youtube.png" alt="Youtube"></a>
+      <a href="https://www.linkedin.com/company/269604"><img src="images/linkedin.png" alt="LinkedIn"></a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <a href="https://www.yesbank.in/personal-banking/yes-individual/cards/credit-cards">CREDIT CARDS</a> |
+      <a href="https://www.yesbank.in/personal-banking/yes-individual/yes-privileges/yes-privileges-offers">OFFERS</a>
+    </div>
+
+  </div>
+</body>
+</html>

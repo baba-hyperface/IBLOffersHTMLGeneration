@@ -419,7 +419,7 @@ function getTemplate3Preview(data, TemplateHelpers, lightColor) {
     <div class="padded center">
       <h1 class="heading">${TemplateHelpers.processTextWithLineBreaks(data.Heading)}</h1>
       <p class="subheading">
-        ${TemplateHelpers.processTextWithLineBreaks(data.subHeadline,{fontSize: "34px", fontWeight: "800",color: "#002ecb"})}
+        ${TemplateHelpers.processTextWithLineBreaks(data.subHeading,{fontSize: "34px", fontWeight: "800",color: "#002ecb"})}
       </p>
       <a href="${data.ctaUrl}" class="btn">${TemplateHelpers.processTextWithLineBreaks(data.ctaText,{color:"#FFF"})}</a>
     </div>

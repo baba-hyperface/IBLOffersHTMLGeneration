@@ -52,7 +52,7 @@ async function htmlTemplate(data, templateName) {
   <tbody>
     <tr>
 					            <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 20px; line-height: normal; color: #0023c8; padding: 0; font-weight: normal;" class="subheading"><strong>Enjoy</strong> <span style="font-size: 34px; font-weight: 800;">1% waiver*</span> 
-                                ${TemplateHelpers.processTextWithLineBreaks(data.subHeadline,{fontSize: "34px", fontWeight: "800",color: "#002ecb"})}</td>
+                                ${TemplateHelpers.processTextWithLineBreaks(data.subHeading,{fontSize: "34px", fontWeight: "800",color: "#002ecb"})}</td>
 					            </tr>
 								<!-- <tr>
 					            <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 20px; line-height: 24px; mso-line-height-rule: exactly; color: #0023c8; padding: 0; font-weight: bold;" class="subheading">
