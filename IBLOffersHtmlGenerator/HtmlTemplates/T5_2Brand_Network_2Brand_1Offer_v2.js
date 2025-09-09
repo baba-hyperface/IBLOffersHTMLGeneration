@@ -506,16 +506,19 @@ function getTemplate3(data, TemplateHelpers, lightColor) {
                                                   </table>
                                                 </td>
                                               </tr>
+
+          ${data.offerEndTextRequire === "true"? `
                                               <tr>
                                                 <td align="center" valign="top"
                                                   style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 16px; line-height: 18px; color: #97272b; padding: 25px 0 25px 0; text-decoration: none; background-color:${
                                                     data.backgroundColor
                                                   };">
                                                   ${TemplateHelpers.processTextWithLineBreaks(
-                                                    data.expiryText,
+                                                    data.offerEndText,
                                                     { delimiter: "/n" }
                                                   )}</td>
-                                              </tr>
+                                              </tr>`
+            :``}
                                             </tbody>
                                           </table>
                                         </td>
@@ -934,11 +937,15 @@ function getTemplate3preview(data, TemplateHelpers, lightColor) {
       </div>
     </div>
     <!-- Expiry Text -->
+
+          ${data.offerEndTextRequire === "true"? `
     <div class="expiry">
-      ${TemplateHelpers.processTextWithLineBreaks(data.expiryText, {
+      ${TemplateHelpers.processTextWithLineBreaks(data.offerEndText, {
         delimiter: "/n",
       })}
     </div>
+    `
+            :``}
     <!-- Footer Logos -->
     <div class="footer-logos">
       

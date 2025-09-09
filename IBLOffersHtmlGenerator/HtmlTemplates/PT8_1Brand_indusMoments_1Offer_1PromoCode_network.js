@@ -1,4 +1,4 @@
-function getTemplate1(data, TemplateHelpers, lightColor) {
+function getTemplate8(data, TemplateHelpers, lightColor) {
   return `<html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -301,6 +301,17 @@ function getTemplate1(data, TemplateHelpers, lightColor) {
               </table>
             </td>
           </tr>
+          ${data.offerEndTextRequire === "true"? `
+            <tr>
+              <td align="center" valign="top" style="font-family: Arial; font-size: 18px; line-height: 21px; color: #97272b; padding: 20px 0 20px 0; text-decoration: none; background-color: ${
+                data.color
+              };max-width:405px;" class="font-16 pdtb">${TemplateHelpers.processTextWithLineBreaks(
+              data.offerEndText,
+              { delimiter: "/n" }
+            )}</td>
+            </tr>
+            `
+                      :``}
         </table>
       </td>
     </tr>
@@ -316,4 +327,4 @@ function getTemplate1(data, TemplateHelpers, lightColor) {
 </body>
 </html>`;
 }
-return getTemplate1(data,TemplateHelpers,lightColor);
+return getTemplate8(data,TemplateHelpers,lightColor);

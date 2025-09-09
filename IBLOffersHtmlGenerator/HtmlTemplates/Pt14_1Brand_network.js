@@ -230,6 +230,18 @@ function getTemplate14(data, TemplateHelpers, lightColor) {
               </table>
             </td>
           </tr>
+
+          ${data.offerEndTextRequire === "true"? `
+            <tr>
+              <td align="center" valign="top" style="font-family: Arial; font-size: 18px; line-height: 21px; color: #97272b; padding: 20px 0 20px 0; text-decoration: none; background-color: ${
+                data.color
+              };max-width:405px;" class="font-16 pdtb">${TemplateHelpers.processTextWithLineBreaks(
+              data.offerEndText,
+              { delimiter: "/n" }
+            )}</td>
+            </tr>
+            `
+            :``}
         </table>
       </td>
     </tr>

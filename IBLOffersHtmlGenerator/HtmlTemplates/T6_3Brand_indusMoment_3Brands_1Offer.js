@@ -173,6 +173,8 @@ function getTemplate6(data, TemplateHelpers, lightColor) {
         </table>
       </td>
     </tr>
+
+          ${data.offerEndTextRequire === "true"? `
     <tr>
       <td align="center" valign="top" style="font-family: Arial; font-size: 16px; line-height: 18px; color: #97272b; padding: 20px 0 20px 0; text-decoration: none; background-color: ${
         data.backgroundColor
@@ -180,6 +182,8 @@ function getTemplate6(data, TemplateHelpers, lightColor) {
         ${data.offerEndText || "Offer valid till 31st December 2025"}
       </td>
     </tr>
+    `
+            :``}
     <tr>
       <td align="center" valign="top" style="font-family: Arial; font-size: 14px; line-height: 18px; color: #000000; padding: 0 0 20px 0; background-color: ${
         data.backgroundColor

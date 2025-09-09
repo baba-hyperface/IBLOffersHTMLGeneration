@@ -378,6 +378,7 @@ body, table, td, p, a, li, blockquote {
 					       <tbody>
 					         
 					         
+          ${data.offerEndTextRequire === "true"? `
 					         <tr>
 					           <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #000000; padding: 0 0 0 0;" class="pdnone">
 					             <table width="510" border="0" align="center" cellpadding="0" cellspacing="0" class="table">
@@ -390,7 +391,8 @@ body, table, td, p, a, li, blockquote {
 					               </table>
 					             
 					             </td>
-					           </tr>
+					           </tr>`
+            :``}
 					         </tbody>
 					       </table>
 					     
@@ -684,9 +686,13 @@ function getTemplate12preview(data, TemplateHelpers, lightColor) {
       </div>
     </div>
     <div class="footer">
+
+          ${data.offerEndTextRequire === "true"? `
       <div class="disclaimer-section">
         ${TemplateHelpers.processTextWithLineBreaks(data.offerEndText)}
       </div>
+      `
+            :``}
       <div class="footer-extra">
         <img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/bull.png" alt="Bull" class="footer-logo" />
         <div class="social-icons">

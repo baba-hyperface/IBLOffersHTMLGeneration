@@ -323,14 +323,18 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
                                                   </table>
                                                 </td>
                                               </tr>
+
+                                          ${data.offerEndTextRequire === "true"? `
                                               <tr>
                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 18px; line-height: 21px; color: #97272b; padding: 20px 0 20px 0; text-decoration: none; background-color: ${
                                                   data.color
                                                 };max-width:405px;" class="font-16 pdtb">${TemplateHelpers.processTextWithLineBreaks(
-    data.offerEndText,
-    { delimiter: "/n" }
-  )}</td>
+                                                data.offerEndText,
+                                                { delimiter: "/n" }
+                                              )}</td>
                                               </tr>
+                                              `
+                                              :``}
                                             </tbody>
                                           </table>
                                         </td>
@@ -551,8 +555,10 @@ function getTemplate4preview(data, TemplateHelpers, lightColor) {
         </div>
       </div>
       
+          ${data.offerEndTextRequire === "true"? `
       <div class="offer-end">${TemplateHelpers.processTextWithLineBreaks(data.offerEndText, { delimiter: "/n" })}</div>
-      
+      `
+            :``}
       <a href="${data.ctaUrl}" class="cta-button" target="_blank">
         ${TemplateHelpers.processTextWithLineBreaks(data.ctaText, { delimiter: "/n" }) || "Shop Now"}
       </a>

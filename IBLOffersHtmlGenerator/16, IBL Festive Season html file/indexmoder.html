@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IndusInd Bank</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Tahoma, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      max-width: 600px;
+    }
+
+    header {
+      background-color: #3d0500;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    header img {
+      width: 180px;
+      height: auto;
+    }
+
+    main {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #3d0500;
+      color: #fff;
+    }
+
+    main h1 {
+      font-size: 34px;
+      line-height: 42px;
+      color: #FFC287;
+      margin-bottom: 10px;
+    }
+
+    main h2 {
+      font-size: 24px;
+      line-height: 28px;
+      font-weight: normal;
+      color: #FFC287;
+      margin-bottom: 30px;
+    }
+
+    .cta img,
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 15px;
+      margin: 20px auto;
+      justify-content: center !important;
+      align-items: center;
+    }
+
+    .socials img {
+      width: 24px !important;
+      height: auto;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #97282b;
+      color: #fff;
+      font-size: 12px;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+      margin: 5px;
+    }
+	.banner img {
+		width: 70%;
+		height: auto;
+	}
+    @media (max-width: 640px) {
+      main h1 {
+        font-size: 24px;
+      }
+      main h2 {
+        font-size: 18px;
+      }
+      header {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="https://www.indusind.com/" target="_blank">
+      <img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/EMI/logo-white.png" alt="IndusInd Bank">
+    </a>
+  </header>
+
+  <main>
+    <h1>${TemplateHelpers.processTextWithLineBreaks(data.headline, { color: "#FFC287" })}</h1>
+    <h2>${TemplateHelpers.processTextWithLineBreaks(data.subHeadline, { color: "#FFC287" })}</h2>
+
+    <div class="cta">
+      <a href="${data.ctaUrl}" target="_blank">
+        <img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_02.jpg" alt="Convert Now">
+      </a>
+    </div>
+
+    <div class="hero">
+      <img src="${data.heroImage || "https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_03.jpg"}" alt="Hero">
+    </div>
+<!-- <div class="banner">
+</div> -->
+
+<img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_01.jpg" alt="Banner">
+    <div class="socials">
+      <a href="https://www.facebook.com/OfficialIndusIndBankPage" target="_blank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_02.jpg" alt="Facebook"></a>
+      <a href="https://www.instagram.com/indusind_bank/" target="_blank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_03.jpg" alt="Instagram"></a>
+      <a href="https://www.threads.net/@indusind_bank" target="_blank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_04.jpg" alt="Threads"></a>
+      <a href="https://www.linkedin.com/company/indusind-bank" target="_blank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_05.jpg" alt="LinkedIn"></a>
+      <a href="https://twitter.com/myindusindbank" target="_blank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_06.jpg" alt="Twitter"></a>
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://www.indusind.com/in/en/personal/indus-easy-emi-tnc.html" target="_blank">Terms and Conditions apply</a>
+    <a href="https://www.indusind.com/in/en/personal/privacy-policy.html" target="_blank">Privacy Policy</a>
+  </footer>
+</body>
+</html>
+  

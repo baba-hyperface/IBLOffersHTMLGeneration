@@ -1,4 +1,4 @@
-function getTemplate3(data, TemplateHelpers, lightColor) {
+function getTemplate10(data, TemplateHelpers, lightColor) {
   return `
   <html>
 <head>
@@ -381,19 +381,21 @@ body, table, td, p, a, li, blockquote {
 					       <tbody>
 					         
 					         
+          ${data.offerEndTextRequire === "true"? `
 					         <tr>
 					           <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #000000; padding: 0 0 0 0;" class="pdnone">
 					             <table width="510" border="0" align="center" cellpadding="0" cellspacing="0" class="table">
 					               <tbody>
 					                 <tr>
-					                   <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 18px; line-height: 24px; color: #9a413d; padding: 0 0 15px 0;">Don't miss out! Offers end on June&nbsp;30,&nbsp;2025.</td>
+					                   <td align="center" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 18px; line-height: 24px; color: #9a413d; padding: 0 0 15px 0;">${TemplateHelpers.processTextWithLineBreaks(data.offerEndText || "Don't miss out! Offers end on June&nbsp;30,&nbsp;2025.", { delimiter: "/n" })}</td>
 					                   </tr>
 									     
 					                 </tbody>
 					               </table>
 					             
 					             </td>
-					           </tr>
+					           </tr>`
+            :``}
 					         </tbody>
 					       </table>
 					     
@@ -464,7 +466,7 @@ body, table, td, p, a, li, blockquote {
   `;
 }
 
-function getTemplate3preview(data, TemplateHelpers, lightColor) {
+function getTemplate10preview(data, TemplateHelpers, lightColor) {
   return `
 <!DOCTYPE html>
 <html>
@@ -773,7 +775,9 @@ function getTemplate3preview(data, TemplateHelpers, lightColor) {
         </div>
       </div>
       
-      <p class="expiry-notice">Don't miss out! Offers end on June 30, 2025.</p>
+          ${data.offerEndTextRequire === "true"? `
+      <p class="expiry-notice">${TemplateHelpers.processTextWithLineBreaks(data.offerEndText ||"Don't miss out! Offers end on June 30, 2025." , { delimiter: "/n" })}</p>`
+            :``}
     </div>
     
     <div class="footer">
@@ -813,7 +817,7 @@ function getTemplate3preview(data, TemplateHelpers, lightColor) {
 }
 
 if (functionName === "preview") {
-  return getTemplate3preview(data, TemplateHelpers, lightColor);
+  return getTemplate10preview(data, TemplateHelpers, lightColor);
 } else {
-  return getTemplate3(data, TemplateHelpers, lightColor);
+  return getTemplate10(data, TemplateHelpers, lightColor);
 }

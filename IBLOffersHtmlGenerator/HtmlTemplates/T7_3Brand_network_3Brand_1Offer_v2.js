@@ -365,6 +365,8 @@ function getTemplate7(data, TemplateHelpers, lightColor) {
                                                     </table>
                                                 </td>
                                               </tr>
+
+          ${data.offerEndTextRequire === "true"? `
                                               <tr>
                                                 <td align="center" valign="top"
                                                   style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 16px; line-height: 18px; color: #97272b; padding: 25px 0 25px 0; text-decoration: none; background-color:${
@@ -375,6 +377,8 @@ function getTemplate7(data, TemplateHelpers, lightColor) {
                                                     { delimiter: "/n" }
                                                   )}</td>
                                               </tr>
+                                              `
+                                              :``}
                                             </tbody>
                                           </table>
                                         </td>
@@ -832,10 +836,13 @@ function getTemplate7preview(data, TemplateHelpers, lightColor) {
         </div>
       </div>
       
+          ${data.offerEndTextRequire === "true"? `
       <div class="expiry-text">${TemplateHelpers.processTextWithLineBreaks(
         data.offerEndText,
         { delimiter: "/n" }
       )}</div>
+      `
+            :``}
     </div>
     
     <div class="footer-social">

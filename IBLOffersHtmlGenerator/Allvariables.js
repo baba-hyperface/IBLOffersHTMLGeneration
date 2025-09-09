@@ -82,7 +82,6 @@ const allvariables = {
     "offerText2",
     "ctaText2",
     "ctaUrl2",
-    "expiryText",
     "offerEndTextRequire",
     "offerEndText",
     "tncUrl",
@@ -300,6 +299,13 @@ const allvariables = {
     "offerEndTextRequire",
     "offerEndText",
     "backgroundColor",
+  ],
+  template16: [
+    "headline",
+    "subHeadline",
+    "heroImage",
+    "ctaUrl",
+    "tncUrl",
   ],
 };
 
