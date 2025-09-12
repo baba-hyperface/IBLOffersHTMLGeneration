@@ -206,7 +206,7 @@ function getTemplate1preview(data, TemplateHelpers, lightColor) {
               <a href="https://www.indusmoments.com/offers/BOOMINS" target="_blank" style="text-decoration:none;">
                 <img src='${
                   data.heroImage
-                }' width="600" alt="IndusInd Bank" style="display:block; width:100%; max-width:600px; height:auto; margin:0 auto; border:0;">
+                }' alt="IndusInd Bank" style="display:block; width:100%; max-width:600px; height:auto; margin:0 auto; border:0;">
               </a>
             </td>
           </tr>
@@ -610,7 +610,7 @@ function getTemplate1(data, TemplateHelpers, lightColor){
                                       <tr>
                                         <td align="center" valign="top"
                                           style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 18px; line-height: 21px; color: #000000; padding: 0; font-weight: bold;"
-                                          class="responsive-image pdlr"><a
+                                          class="responsive-image"><a
                                             href="https://www.indusmoments.com/offers/BOOMINS" target="_blank"
                                             style="text-decoration: none;"><img
                                               src="${data.heroImage}"

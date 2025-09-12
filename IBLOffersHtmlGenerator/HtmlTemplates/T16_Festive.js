@@ -298,7 +298,7 @@ body, table, td, p, a, li, blockquote {
                                       <td align="right" valign="top" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #ffffff; padding: 10px 16px 10px 16px;" bgcolor="#97282b"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                                           <tbody>
                                             <tr>
-                                              <td align="left" valign="bottom" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: 14px; color: #ffffff; padding: 0 0 0 0;"><a href="https://www.indusind.com/in/en/personal/indus-easy-emi-tnc.html" target="_blank" style="color: #ffffff; text-decoration: underline;">Terms and Conditions apply</a></td>
+                                              <td align="left" valign="bottom" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: 14px; color: #ffffff; padding: 0 0 0 0;"><a href="${data.tncUrl}" target="_blank" style="color: #ffffff; text-decoration: underline;">Terms and Conditions apply</a></td>
                                               <td align="right" valign="bottom" style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 12px; line-height: 14px; color: #ffffff; padding: 0 0 0 0;"><a href="https://www.indusind.com/in/en/personal/privacy-policy.html" target="_blank" style="color: #ffffff; text-decoration: underline;">Privacy Policy</a></td>
                                             </tr>
                                           </tbody>
@@ -325,151 +325,179 @@ body, table, td, p, a, li, blockquote {
 
 
 function getTemplate16preview(data, TemplateHelpers, lightColor) {
-  return `
-<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IndusInd Bank</title>
+  <meta charset="UTF-8">
+  <title>IndusInd Bank Offer</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, Tahoma, sans-serif;
+      padding: 0;
+      font-family: Arial, sans-serif;
       background-color: #ffffff;
-      color: #333;
+      min-width: 600px;
     }
-
-    header {
+    .email-container {
+    width:600px;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+    }
+    .header {
+      padding: 15px;
+      text-align: right;
+      font-weight: bold;
+      font-size: 18px;
       background-color: #3d0500;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
     }
-
-    header img {
-      width: 180px;
-      height: auto;
+    .header img {
+      height: 28px;
+      width: auto;
     }
-
-    main {
+    .hero {
+      background-color: #3d0500;
       text-align: center;
-      padding: 40px 20px;
-      background-color: #3d0500;
       color: #fff;
+      padding: 30px 20px 10px;
     }
-
-    main h1 {
+    .hero h1 {
       font-size: 34px;
-      line-height: 42px;
-      color: #FFC287;
+      line-height: 1.4;
+      margin: 0;
+      font-weight: bold;
+    }
+    .hero h1 span {
+      color: #f8b54a;
+    }
+    .sub-text {
+      margin-top: 10px;
       margin-bottom: 10px;
-    }
-
-    main h2 {
       font-size: 24px;
-      line-height: 28px;
-      font-weight: normal;
-      color: #FFC287;
-      margin-bottom: 30px;
     }
-
-    .cta img,
-    .hero img {
+    
+    .cta a {
+      background-color: #9d1524;
+      color: #fff;
+      text-decoration: none;
+      /* padding: 12px 25px; */
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+      display: inline-block;
+    }
+    .cta img {
       width: 100%;
+      max-width: 600px;
       height: auto;
       display: block;
       margin: 0 auto;
-      border-radius: 4px;
     }
-
-    .socials {
-      display: flex;
-      gap: 15px;
-      margin: 20px auto;
-      justify-content: center !important;
-      align-items: center;
-    }
-
-    .socials img {
-      width: 24px !important;
+    .image-block img {
+      width: 100%;
+      max-width: 600px;
       height: auto;
-      cursor: pointer;
+      display: block;
     }
-
-    footer {
-      background-color: #97282b;
+    .footer {
+      background-color: #701c11;
       color: #fff;
       font-size: 12px;
-      padding: 15px 20px;
+      /* padding: 15px; */
+    }
+    .footer-content {
+      background-color: #651d16;
+      display: flex;
+      align-items: center;
+      height: fit-content;
+    }
+    .footer .logo {
+      width: 80%;
+      height: fit-content;
+    }
+    .footer .socials img {
+      /* width: 18px; */
+      /* overflow-y: hidden; */
+      /* margin-left: 6px; */
+    }
+    .footer-links {
+      text-align: center;
       display: flex;
       justify-content: space-between;
-      flex-wrap: wrap;
+      padding:20px 10px  ;
     }
-
-    footer a {
+    .footer-links a {
       color: #fff;
       text-decoration: underline;
-      margin: 5px;
+      /* margin: 0 10px; */
     }
-	.banner img {
-		width: 100%;
-		height: auto;
-	}
-    @media (max-width: 640px) {
-      main h1 {
-        font-size: 24px;
+
+    /* Mobile responsiveness */
+    /* @media screen and (max-width: 480px) {
+      .hero h1 {
+        font-size: 16px;
       }
-      main h2 {
-        font-size: 18px;
+      .cta a {
+        padding: 10px 18px;
+        font-size: 13px;
       }
-      header {
-        justify-content: center;
+      .footer-content {
+        flex-direction: column;
+        gap: 8px;
       }
-    }
+    } */
   </style>
 </head>
 <body>
-  <header>
-    <a href="https://www.indusind.com/" target="_blank">
-      <img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/EMI/logo-white.png" alt="IndusInd Bank">
+  <div class="email-container">
+    <!-- Header -->
+    <div class="header">
+      <a href="https://www.indusind.com/" target="_blank">
+      <img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/EMI/logo-white.png" alt="IndusInd Bank Logo">
     </a>
-  </header>
+    </div>
 
-  <main>
-    <h1>${TemplateHelpers.processTextWithLineBreaks(data.headline, { color: "#FFC287" })}</h1>
-    <h2>${TemplateHelpers.processTextWithLineBreaks(data.subHeadline, { color: "#FFC287" })}</h2>
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>
+        ${TemplateHelpers.processTextWithLineBreaks(data.headline, { color: "#FFC287" })}
+      </h1>
+      <div class="sub-text">${TemplateHelpers.processTextWithLineBreaks(data.subHeadline, { color: "#FFC287" })}</div>
 
+      
     <div class="cta">
       <a href="${data.ctaUrl}" target="_blank">
         <img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_02.jpg" alt="Convert Now">
       </a>
     </div>
-
-    <div class="hero">
-      <img src="${data.heroImage || "https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_03.jpg"}" alt="Hero">
     </div>
-<div class="banner">
-  <img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_01.jpg" alt="Banner">
-</div>
 
-    <div class="socials">
-      <a href="https://www.facebook.com/OfficialIndusIndBankPage" target="_blank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_02.jpg" alt="Facebook"></a>
-      <a href="https://www.instagram.com/indusind_bank/" target="_blank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_03.jpg" alt="Instagram"></a>
-      <a href="https://www.threads.net/@indusind_bank" target="_blank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_04.jpg" alt="Threads"></a>
-      <a href="https://www.linkedin.com/company/indusind-bank" target="_blank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_05.jpg" alt="LinkedIn"></a>
-      <a href="https://twitter.com/myindusindbank" target="_blank"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_06.jpg" alt="Twitter"></a>
+    <!-- Hero Image -->
+    <div class="image-block">
+      <img src="${data.heroImage || 'https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_03.jpg'}" alt="Festive Modaks">
     </div>
-  </main>
 
-  <footer>
-    <a href="https://www.indusind.com/in/en/personal/indus-easy-emi-tnc.html" target="_blank">Terms and Conditions apply</a>
-    <a href="https://www.indusind.com/in/en/personal/privacy-policy.html" target="_blank">Privacy Policy</a>
-  </footer>
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-content">
+        <img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_01.jpg" alt="Logo" class="logo">
+        <div class="socials">
+          <a href="#"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_02.jpg" alt="Facebook"></a>
+          <a href="#"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_03.jpg" alt="Instagram"></a>
+          <a href="#"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_04.jpg" alt="Threads"></a>
+          <a href="#"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_05.jpg" alt="LinkedIn"></a>
+          <a href="#"><img src="https://demo.forecastadvtg.com/projects/Hyperface/2025/email/fs_04_06.jpg" alt="Twitter"></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="${data.tncUrl}">Terms and Conditions apply</a>  
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
-  `;
+`;
 }
 
 if (functionName === "preview") {
