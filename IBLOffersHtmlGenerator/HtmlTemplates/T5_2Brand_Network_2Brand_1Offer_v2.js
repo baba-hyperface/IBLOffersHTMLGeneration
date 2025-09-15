@@ -507,7 +507,7 @@ function getTemplate3(data, TemplateHelpers, lightColor) {
                                                 </td>
                                               </tr>
 
-          ${data.offerEndTextRequire === "true"? `
+          ${String(data.offerEndTextRequire).toLowerCase() === "true"? `
                                               <tr>
                                                 <td align="center" valign="top"
                                                   style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 16px; line-height: 18px; color: #97272b; padding: 25px 0 25px 0; text-decoration: none; background-color:${
@@ -938,7 +938,7 @@ function getTemplate3preview(data, TemplateHelpers, lightColor) {
     </div>
     <!-- Expiry Text -->
 
-          ${data.offerEndTextRequire === "true"? `
+          ${String(data.offerEndTextRequire).toLowerCase() === "true"? `
     <div class="expiry">
       ${TemplateHelpers.processTextWithLineBreaks(data.offerEndText, {
         delimiter: "/n",

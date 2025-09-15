@@ -337,7 +337,7 @@ function getTemplate15(data, TemplateHelpers, lightColor) {
                                           </table>
                                         </td>
                                       </tr>
-                                      ${data.offerEndTextRequire === "true"? `
+                                      ${String(data.offerEndTextRequire).toLowerCase() === "true"? `
                                       <tr>
                                         <td align="center" valign="top"
                                           style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #97272b; padding: 0px 0 20px 0;background-color: ${data.backgroundColor};"
@@ -664,7 +664,7 @@ function getTemplate15preview(data, TemplateHelpers, lightColor) {
 
     </div>
 
-    ${data.offerEndTextRequire === "true"? `
+    ${String(data.offerEndTextRequire).toLowerCase() === "true"? `
           <div align="center" valign="top"
             style="font-family: Arial, 'Times New Roman', Tahoma, 'serif'; font-size: 14px; line-height: 18px; color: #97272b; padding: 15px 0 10px 0;"
             class="pdtb">

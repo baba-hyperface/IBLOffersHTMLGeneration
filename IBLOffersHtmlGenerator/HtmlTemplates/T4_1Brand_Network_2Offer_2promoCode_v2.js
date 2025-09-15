@@ -324,7 +324,7 @@ function getTemplate4(data, TemplateHelpers, lightColor) {
                                                 </td>
                                               </tr>
 
-                                          ${data.offerEndTextRequire === "true"? `
+                                          ${String(data.offerEndTextRequire).toLowerCase() === "true"? `
                                               <tr>
                                                 <td align="center" valign="top" style="font-family: Arial; font-size: 18px; line-height: 21px; color: #97272b; padding: 20px 0 20px 0; text-decoration: none; background-color: ${
                                                   data.color
@@ -555,7 +555,7 @@ function getTemplate4preview(data, TemplateHelpers, lightColor) {
         </div>
       </div>
       
-          ${data.offerEndTextRequire === "true"? `
+          ${String(data.offerEndTextRequire).toLowerCase() === "true"? `
       <div class="offer-end">${TemplateHelpers.processTextWithLineBreaks(data.offerEndText, { delimiter: "/n" })}</div>
       `
             :``}
