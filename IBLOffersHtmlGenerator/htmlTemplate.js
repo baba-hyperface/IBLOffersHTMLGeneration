@@ -72,22 +72,14 @@ async function htmlTemplate(data, templateName) {
       ];
 
       return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" 
-       style="width:100%; min-width:100%; background-color:${
-         bgcolor
-       }; border-collapse:collapse;">
+       style="width:100%; min-width:100%; background-color:${bgcolor}; border-collapse:collapse;">
     <tr>
-        <td valign="middle" style="padding:0px 10px 3px 0;background-color:${
-          bgcolor
-        };vertical-align: middle;">
+        <td valign="middle" style="padding:0px 10px 3px 0;background-color:${bgcolor};vertical-align: middle;">
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"
-                   style="width:100%; border-collapse:collapse;background-color:${
-                     bgcolor
-                   };">
+                   style="width:100%; border-collapse:collapse;background-color:${bgcolor};">
                 <tr>
                     <!-- Logo Column -->
-                    <td align="left" valign="bottom" width="61" style="padding:0;background-color:${
-                      bgcolor
-                    };">
+                    <td align="left" valign="bottom" width="61" style="padding:0;background-color:${bgcolor};">
                         <img src="${
                           lightColor
                             ? "https://i.imgur.com/3j0fIwT.png"
@@ -97,14 +89,10 @@ async function htmlTemplate(data, templateName) {
                     </td>
                     
                     <!-- Spacer Column -->
-                    <td class="socialspacer" style="width:auto; padding:0;background-color:${
-                      bgcolor
-                    };">&nbsp;</td>
+                    <td class="socialspacer" style="width:auto; padding:0;background-color:${bgcolor};">&nbsp;</td>
                     
                     <!-- Social Icons Column -->
-                    <td align="right" valign="bottom" style="padding:0; white-space:nowrap;padding:10px 5px 10px 335px;background-color:${
-                      bgcolor
-                    }; vertical-align: bottom;">
+                    <td align="right" valign="bottom" style="padding:0; white-space:nowrap;padding:10px 5px 10px 335px;background-color:${bgcolor}; vertical-align: bottom;">
                         <span style="font-size:10.17px; color:#9A413C; font-weight:600; padding-right:${iconSpacing}; vertical-align:bottom; font-family:Arial;">
                             Connect with us:
                         </span>
@@ -210,42 +198,128 @@ async function htmlTemplate(data, templateName) {
       if (!text || typeof text !== "string") return "";
       return text.split(delimiter).join("<br>");
     },
-     processTextWithLineBreaks:function(text, options = {}) {
-  if (!text || typeof text !== "string") return "";
+    processTextWithLineBreaks: function (text, options = {}) {
+      if (!text || typeof text !== "string") return "";
 
-  const styles = {
-    color: options.color || "#97272b",
-    fontWeight: options.fontWeight || "normal",
-    fontSize: options.fontSize || "inherit",
-    fontStyle: options.fontStyle || "normal",
-    textDecoration: options.underline ||  "none",
-    ...(options.style || {})
-  };
+      const styles = {
+        color: options.color || "#97272b",
+        fontWeight: options.fontWeight || "normal",
+        fontSize: options.fontSize || "inherit",
+        fontStyle: options.fontStyle || "normal",
+        textDecoration: options.underline || "none",
+        ...(options.style || {}),
+      };
 
-  const styleString = Object.entries(styles)
-    .map(([key, value]) => `${key}:${value}`)
-    .join(";");
+      const styleString = Object.entries(styles)
+        .map(([key, value]) => `${key}:${value}`)
+        .join(";");
 
-  const tag = options.tag || "strong";
-  const delimiter = options.delimiter || "/n";
+      const tag = options.tag || "strong";
+      const delimiter = options.delimiter || "/n";
 
-  // Step 1: Replace **bold** with styled tag
-  let processed = text.replace(
-    /\*\*(.*?)\*\*/g,
-    `<${tag} style="${styleString}">$1</${tag}>`
-  );
-   processed = processed.replace(
-    /\^(.*?)\^/g,
-    `<sup style="vertical-align: text-top;line-height: .6em;mso-ansi-font-size: 100%; font-size: 68%;">$1</sup>`
-  );
+      // Step 1: Replace **bold** with styled tag
+      let processed = text.replace(
+        /\*\*(.*?)\*\*/g,
+        `<${tag} style="${styleString}">$1</${tag}>`
+      );
+      processed = processed.replace(
+        /\^(.*?)\^/g,
+        `<sup style="vertical-align: text-top;line-height: .6em;mso-ansi-font-size: 100%; font-size: 68%;">$1</sup>`
+      );
 
+      // Step 2: Replace custom line break delimiter with <br>
+      processed = processed.split(delimiter).join("<br>");
 
-  // Step 2: Replace custom line break delimiter with <br>
-  processed = processed.split(delimiter).join("<br>");
+      return processed;
+    },
 
-  return processed;
-}
+    getEmailContent: function (elements = [], options = {}) {
+      if (!Array.isArray(elements)) return "";
 
+      const {
+        wrapperTag = "div",
+        wrapperStyle = "",
+        wrapperClass = "",
+        wrapper = true,
+        joinWith = "",
+        defaultTag = "span",
+      } = options;
+
+      const escapeHTML = (str = "") =>
+        str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+
+      const attrsToString = (attrs = {}) =>
+        Object.entries(attrs)
+          .filter(([_, val]) => val)
+          .map(([key, val]) => `${key}="${val}"`)
+          .join(" ");
+
+      const buildElement = (el) => {
+        if (typeof el === "string" || typeof el === "number")
+          return escapeHTML(String(el));
+        if (!el || typeof el !== "object") return "";
+
+        const {
+          type = defaultTag,
+          text = "",
+          children = [],
+          style = "",
+          className = "",
+          attrs = {},
+          condition = true,
+          joinChildrenWith = "",
+          textOptions = {}, // <-- new optional styling for processText
+        } = el;
+
+        if (!condition) return "";
+
+        const allAttrs = {
+          style,
+          class: className,
+          ...attrs,
+        };
+
+        let innerContent = children.length
+          ? children.map(buildElement).join(joinChildrenWith)
+          : this.processTextWithLineBreaks(text, textOptions); // <-- process text
+
+        switch (type) {
+          case "br":
+            return "<br>";
+          case "img":
+            return `<img ${attrsToString(allAttrs)}>`;
+          case "a":
+            return `<a ${attrsToString(allAttrs)}>${innerContent}</a>`;
+          case "ul":
+          case "ol":
+            return `<${type} ${attrsToString(allAttrs)}>${children
+              .map(buildElement)
+              .join("")}</${type}>`;
+          case "li":
+            return `<li ${attrsToString(allAttrs)}>${innerContent}</li>`;
+          default:
+            return `<${type} ${attrsToString(
+              allAttrs
+            )}>${innerContent}</${type}>`;
+        }
+      };
+
+      const content = elements.map(buildElement.bind(this)).join(joinWith);
+
+      if (!wrapper) return content;
+
+      const wrapperAttrs = attrsToString({
+        style: wrapperStyle,
+        class: wrapperClass,
+      });
+
+      return `<${wrapperTag} ${wrapperAttrs}>${content}</${wrapperTag}>`;
+    },
   };
   const namedColors = {
     aliceblue: "#F0F8FF",
@@ -311,12 +385,12 @@ async function htmlTemplate(data, templateName) {
     template7: T7_3Brand_network_3Brand_1Offer,
     template8: PT8_1Brand_indusMoments_1Offer_1PromoCode_network,
     template9: PT9_4Brand_indusMoment_4Brand_1Offer,
-    template10 : PT10_4Brand_network_4Brand_1Offer,
-    template11 : PT11_6Brand_Network_1Offer,
-    template12 : PT12_6Brand_IndusMoment,
-    template13 : PT13_1Brand_IndusMoment_NopromoCode,
-    template14 : PT14_1Brand_Network_NoPromoCode,
-    template15 : PT15_1Brand_Network,
+    template10: PT10_4Brand_network_4Brand_1Offer,
+    template11: PT11_6Brand_Network_1Offer,
+    template12: PT12_6Brand_IndusMoment,
+    template13: PT13_1Brand_IndusMoment_NopromoCode,
+    template14: PT14_1Brand_Network_NoPromoCode,
+    template15: PT15_1Brand_Network,
   };
   if (templateMap[templateName]) {
     selectedTemplate = await templateMap[templateName].trigger({
@@ -324,11 +398,11 @@ async function htmlTemplate(data, templateName) {
         data: data,
         TemplateHelpers: TemplateHelpers,
         lightColor: lightColor,
-        functionName: "generate"
+        functionName: "generate",
       },
     });
   } else {
-    selectedTemplate = '<div>wrong template selected</div>';
+    selectedTemplate = "<div>wrong template selected</div>";
   }
   return selectedTemplate;
 }

@@ -48,4 +48,28 @@ const variables = {
     "heroImage",
     "tncUrl",
   ],
+  template5:[
+    "Heading",
+    "part1subHeading",
+    "amount",
+    "part2subHeading1",
+    "BrandImage",
+    "part2subHeading2",
+    "part3subHeading",
+    "ctaText",
+    "ctaUrl",
+    "OfferEndText",
+    "heroImage",
+    "tncUrl",
+  ],
+  template6:[
+    "Heading",
+    "subHeading",
+    "brandImage",
+    "OfferEndText",
+    "ctaText",
+    "ctaUrl",
+    "heroImage",
+    "tncUrl",
+  ]
 };
